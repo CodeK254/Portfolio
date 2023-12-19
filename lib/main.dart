@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/views/loading/loading.dart';
-import 'package:portfolio/app/views/loading/loading_controller.dart';
+import 'package:portfolio_website/app/views/loading/loading.dart';
+import 'package:portfolio_website/app/views/loading/loading_controller.dart';
 
 void main() {
   runApp(

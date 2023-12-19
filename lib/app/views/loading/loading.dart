@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/views/loading/loading_controller.dart';
+import 'package:portfolio_website/app/views/loading/loading_controller.dart';
 
 class FlutterLoadingLogo extends StatelessWidget {
   FlutterLoadingLogo({super.key});

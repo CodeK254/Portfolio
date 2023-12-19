@@ -43,7 +43,7 @@ dependencies:
   url_launcher: ^6.1.10
   flutter_native_splash: 
   flutter_launcher_icons: 
-  get: ^4.6.5
+  get: ^4.6.6
   font_awesome_flutter: ^10.4.0
   carousel_slider: ^4.2.1
   animated_text_kit: ^4.2.2
