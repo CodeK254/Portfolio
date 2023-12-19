@@ -15,7 +15,7 @@ class LoadingController extends GetxController with GetTickerProviderStateMixin{
   void onInit() {
     scalingAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 2),
       upperBound: 2.5,
       lowerBound: 1,
     );
@@ -29,13 +29,13 @@ class LoadingController extends GetxController with GetTickerProviderStateMixin{
 
     rotateAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
     );
 
     rotateAnimation = Tween<double>(
       begin: 0.0,
       end: 2 * pi,
-    ).animate(CurvedAnimation(parent: rotateAnimationController!, curve: Curves.bounceInOut));
+    ).animate(CurvedAnimation(parent: rotateAnimationController!, curve: Curves.bounceOut));
 
     scalingAnimationController!.addListener(() {
       if(scalingAnimationController!.isCompleted){
@@ -45,11 +45,12 @@ class LoadingController extends GetxController with GetTickerProviderStateMixin{
       }
     });
 
-    rotateAnimationController!.addListener(() {
+    rotateAnimationController!.addListener(() async {
       if(rotateAnimationController!.isCompleted){
+        await Future.delayed(const Duration(seconds: 2));
         scalingAnimationController!.reverse();
       } else if(rotateAnimationController!.isDismissed){
-        scalingAnimationController!.forward();
+        Get.toNamed("/home");
       }
     });
 
