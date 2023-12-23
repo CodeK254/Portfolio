@@ -19,5 +19,13 @@ ThemeData lightTheme = ThemeData(
       color: Colors.black,
       fontWeight: FontWeight.bold,
     ),
+    displayMedium: TextStyle(
+      fontSize: 16,
+      color: Colors.grey.shade900,
+    ),
+    displaySmall: TextStyle(
+      fontSize: 12,
+      color: Colors.grey.shade700,
+    ),
   ),
 );
