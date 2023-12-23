@@ -56,13 +56,13 @@ dev_dependencies:
     sdk: flutter
 
 flutter_icons:
-  image_path: "assets/demo/resume.png"
+  image_path: "assets/launcher/file.png"
   android: true
   IOS: true
   Web: true
 
 flutter_native_splash:
-  image: "assets/demo/resume.png"
+  image: "assets/launcher/portfolio.png"
   color: "#ffffff"
   android: true
   IOS: true
@@ -91,6 +91,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/demo/
+    - assets/launcher/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

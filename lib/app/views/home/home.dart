@@ -7,6 +7,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Mobile Developer",
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+      ),
       body: ResponsiveWidgetScreen(
         largeScreen: Container(
           color: Colors.red,

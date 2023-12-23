@@ -21,9 +21,10 @@ class FlutterLoadingLogo extends StatelessWidget {
             child: ScaleTransition(
               scale: loadingController.scalingAnimationController!,
               child: const Center(
-                child: FlutterLogo(
-                  size: 100,
-                  style: FlutterLogoStyle.stacked,
+                child: Image(
+                  image: AssetImage("assets/launcher/portfolio1.png"),
+                  height: 100,
+                  width: 100,
                 ),
               ),
             ),

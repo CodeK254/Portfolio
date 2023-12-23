@@ -50,7 +50,7 @@ class LoadingController extends GetxController with GetTickerProviderStateMixin{
         await Future.delayed(const Duration(seconds: 2));
         scalingAnimationController!.reverse();
       } else if(rotateAnimationController!.isDismissed){
-        Get.toNamed("/home");
+        Get.offNamed("/home");
       }
     });
 
