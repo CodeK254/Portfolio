@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio_website/app/views/home/home.dart';
+import 'package:portfolio_website/app/views/home/home_controller.dart';
 import 'package:portfolio_website/app/views/loading/loading.dart';
 import 'package:portfolio_website/app/views/loading/loading_controller.dart';
 import 'package:portfolio_website/utils/theme.dart';
@@ -9,7 +10,7 @@ void main() {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/home",
+      initialRoute: "/",
       theme: lightTheme,
       getPages: [
         GetPage(
@@ -23,7 +24,7 @@ void main() {
           name: "/home",
           page: () => HomeScreen(),
           binding: BindingsBuilder(() {
-            
+            Get.lazyPut<HomeController>(() => HomeController());
           }),
         ),
       ],
