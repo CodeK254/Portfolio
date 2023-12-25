@@ -52,6 +52,7 @@ dependencies:
   flutter_animate: ^4.1.1+1
 
 dev_dependencies:
+  flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter
 
@@ -62,7 +63,7 @@ flutter_icons:
   Web: true
 
 flutter_native_splash:
-  image: "assets/launcher/portfolio.png"
+  image: "assets/launcher/portfolio1.png"
   color: "#ffffff"
   android: true
   IOS: true

@@ -44,15 +44,15 @@ class HomeScreen extends StatelessWidget {
             Image(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.9,
-              image: AssetImage("assets/images/bg.jpg"),
+              image: const AssetImage("assets/images/bg.jpg"),
               fit: BoxFit.cover,
             ).animate(
               effects: [
-                FadeEffect(
+                const FadeEffect(
                   begin: 1.0,
                   end: .2,
-                  duration: const Duration(seconds: 3),
-                  delay: const Duration(seconds: 2),
+                  duration: Duration(seconds: 3),
+                  delay: Duration(seconds: 2),
                 ),
               ],
             ),
@@ -71,33 +71,33 @@ class HomeScreen extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: Colors.grey.shade100,
                           boxShadow: [
-                            BoxShadow(
+                            const BoxShadow(
                               color: Colors.white,
                               offset: Offset(-3, -3),
                               blurRadius: 14,
                             ),
                             BoxShadow(
                               color: Colors.grey.shade300,
-                              offset: Offset(3, 3),
+                              offset: const Offset(3, 3),
                               blurRadius: 14,
                             ),
                           ],
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage("assets/launcher/file.png"),
                           )
                         ),
                       ).animate(
                         effects: [
-                          SlideEffect(
+                          const SlideEffect(
                             begin: Offset(0, -10),
                             end: Offset(0, 0),
-                            delay: const Duration(seconds: 1),
-                            duration: const Duration(seconds: 1),
+                            delay: Duration(seconds: 1),
+                            duration: Duration(seconds: 1),
                             curve: Curves.bounceOut
                           ),
                         ],
                       ),
-                      SizedBox(width: 12),
+                      const SizedBox(width: 12),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +108,7 @@ class HomeScreen extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             AnimatedTextKit(
                               totalRepeatCount: 1,
                               animatedTexts: [
@@ -151,7 +151,7 @@ class HomeScreen extends StatelessWidget {
                                       fontSize: 18,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8,
                                   ),
                                   Text(
@@ -163,6 +163,15 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                            ).animate(
+                              effects: [
+                                SlideEffect(
+                                  begin: const Offset(-10, 0),
+                                  end: const Offset(0, 0),
+                                  duration: const Duration(seconds: 2),
+                                  delay: Duration(seconds: index * 2),
+                                ),
+                              ],
                             ),
                           ),
                           SizedBox(
@@ -181,7 +190,7 @@ class HomeScreen extends StatelessWidget {
               left: 8,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(12),
                     topRight: Radius.circular(12),
                   ),
@@ -225,7 +234,7 @@ class HomeScreen extends StatelessWidget {
                                             size: 22,
                                             color: homeController.socialIcons[index]["color"],
                                           ),
-                                          SizedBox(height: 3),
+                                          const SizedBox(height: 3),
                                           Text(
                                             homeController.socialIcons[index]["label"],
                                             style: Theme.of(context).textTheme.displaySmall!.copyWith(
@@ -237,10 +246,10 @@ class HomeScreen extends StatelessWidget {
                                     ).animate(
                                       effects: [
                                         SlideEffect(
-                                          begin: Offset(20, 0),
-                                          end: Offset(0, 0),
+                                          begin: const Offset(20, 0),
+                                          end: const Offset(0, 0),
                                           delay: Duration(seconds: 3 + (index + 1)),
-                                          duration: Duration(seconds: 1),
+                                          duration: const Duration(seconds: 1),
                                         ),
                                       ],
                                     ),
@@ -251,7 +260,7 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Divider(
+                      const Divider(
                         thickness: .3,
                       ),
                       Row(
@@ -261,7 +270,7 @@ class HomeScreen extends StatelessWidget {
                             "Copyright policy ",
                             style: Theme.of(context).textTheme.displaySmall,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.copyright,
                             size: 18,
                             color: Colors.blueGrey,
@@ -277,11 +286,11 @@ class HomeScreen extends StatelessWidget {
                 ),
               ).animate(
                 effects: [
-                  SlideEffect(
+                  const SlideEffect(
                     begin: Offset(0, 20),
                     end: Offset(0, 0),
-                    duration: const Duration(seconds: 3),
-                    delay: const Duration(seconds: 3),
+                    duration: Duration(seconds: 3),
+                    delay: Duration(seconds: 3),
                   ),
                 ],
               ),
