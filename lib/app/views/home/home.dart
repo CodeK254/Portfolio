@@ -181,8 +181,9 @@ class HomeScreen extends StatelessWidget {
                         flex: 2,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                            SizedBox(height: MediaQuery.of(context).size.height * 0.1),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.end,
