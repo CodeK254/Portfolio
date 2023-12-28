@@ -11,7 +11,9 @@ void main() {
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: "/home",
+      // themeMode: ThemeMode.system,
       theme: lightTheme,
+      darkTheme: darkTheme,
       getPages: [
         GetPage(
           name: "/",

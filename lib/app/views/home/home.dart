@@ -413,7 +413,7 @@ class HomeScreen extends StatelessWidget {
                                 blurRadius: 14,
                               ),
                               BoxShadow(
-                                color: Colors.grey.shade300,
+                                color: Theme.of(context).primaryColor,
                                 offset: const Offset(3, 3),
                                 blurRadius: 14,
                               ),
@@ -450,9 +450,7 @@ class HomeScreen extends StatelessWidget {
                                 animatedTexts: [
                                   TypewriterAnimatedText(
                                     "Student at Karatina University- Nyeri, Kenya. Proficient in Dart language, Flutter Framework, PHP and LARAVEL, beginner in Arduino Programming.",
-                                    textStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
-                                      color: Colors.grey.shade800,
-                                    ),
+                                    textStyle: Theme.of(context).textTheme.displaySmall,
                                     speed: const Duration(milliseconds: 50),
                                   ),
                                 ],
@@ -494,7 +492,6 @@ class HomeScreen extends StatelessWidget {
                                       about[index]["data"],
                                       style: Theme.of(context).textTheme.displaySmall!.copyWith(
                                         fontSize: 14,
-                                        color: Colors.grey.shade800,
                                       ),
                                     ),
                                   ],
@@ -530,7 +527,7 @@ class HomeScreen extends StatelessWidget {
                       topLeft: Radius.circular(12),
                       topRight: Radius.circular(12),
                     ),
-                    color: Colors.grey.shade300
+                    color: Theme.of(context).primaryColor,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -547,9 +544,7 @@ class HomeScreen extends StatelessWidget {
                                 alignment: Alignment.topLeft,
                                 child: Text(
                                   "Social Media:",
-                                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                                    color: Colors.grey.shade700
-                                  ),
+                                  style: Theme.of(context).textTheme.displayMedium,
                                 ),
                               ),
                               SingleChildScrollView(
