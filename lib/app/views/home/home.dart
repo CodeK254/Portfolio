@@ -2,7 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
-import 'package:portfolio_website/Responsive/responsive.dart';
+import 'package:portfolio_website/responsive/responsive.dart';
 import 'package:portfolio_website/app/data/dummy.dart';
 import 'package:portfolio_website/app/services/launcher.dart';
 import 'package:portfolio_website/app/views/home/home_controller.dart';
