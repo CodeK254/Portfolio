@@ -35,6 +35,9 @@ class HomeScreen extends StatelessWidget {
                       homeController.navigation[index]["label"],
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
+                    onTap: (){
+                      Get.toNamed(homeController.navigation[index]["url"]);
+                    },
                   ),
                 ),
               ];

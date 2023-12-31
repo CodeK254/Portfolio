@@ -16,6 +16,13 @@ void main() {
       // themeMode: ThemeMode.system,
       theme: lightTheme,
       darkTheme: darkTheme,
+      unknownRoute: GetPage(
+        name: "/",
+        page: () => FlutterLoadingLogo(),
+        binding: BindingsBuilder(() {
+          Get.lazyPut<LoadingController>(() => LoadingController());
+        }),
+      ),
       getPages: [
         GetPage(
           name: "/",
@@ -32,7 +39,7 @@ void main() {
           }),
         ),
         GetPage(
-          name: "/contact", 
+          name: "/about", 
           page: () => ContactMeScreen(),
           binding: BindingsBuilder(() {
             Get.lazyPut<ContactController>(() => ContactController());
