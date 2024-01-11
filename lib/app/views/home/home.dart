@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                 (index) => InkWell(
                   hoverColor: Colors.grey.shade300,
                   onHover: (value){
-                    print("Hovering at index: $index");
+                    
                   },
                   onTap: (){
                     homeController.selected.value = index;

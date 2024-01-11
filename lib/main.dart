@@ -12,8 +12,6 @@ void main() {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/contact",
-      // themeMode: ThemeMode.system,
       theme: lightTheme,
       darkTheme: darkTheme,
       unknownRoute: GetPage(
@@ -39,7 +37,7 @@ void main() {
           }),
         ),
         GetPage(
-          name: "/about", 
+          name: "/contact",
           page: () => ContactMeScreen(),
           binding: BindingsBuilder(() {
             Get.lazyPut<ContactController>(() => ContactController());

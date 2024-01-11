@@ -1,10 +1,16 @@
 import "dart:async";
+import "package:flutter/material.dart";
 import "package:geolocator/geolocator.dart";
 import "package:get/get.dart";
 import "package:google_maps_flutter/google_maps_flutter.dart";
 
 class ContactController extends GetxController{
   Rx<LatLng> latLng = const LatLng(-1.2261557, 36.9277381).obs;
+  final GlobalKey<FormState> formKey = GlobalKey();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController name = TextEditingController();
+  final TextEditingController phone = TextEditingController();
+  final TextEditingController response = TextEditingController();
 
   Future<void> goToPlace(Completer<GoogleMapController> xController, LatLng origin) async{
     final GoogleMapController controller = await xController.future;
