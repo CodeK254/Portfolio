@@ -23,7 +23,7 @@ class HomeController extends GetxController{
     {"label": "Contact", "url": "/contact"},
   ];
 
-  RxInt selected = 1.obs;
+  RxInt selected = 0.obs;
 
   List<Color> colors = [
     Colors.black,
