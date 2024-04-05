@@ -99,9 +99,9 @@ class ServicesLargeScreen extends StatelessWidget {
                                   ).animate(
                                     effects: [
                                       const SlideEffect(
-                                        begin: Offset(0, 3),
+                                        begin: Offset(0, 1),
                                         end: Offset(0, 0),
-                                        duration: Duration(seconds: 2),
+                                        duration: Duration(seconds: 1),
                                       ),
                                     ],
                                   ),

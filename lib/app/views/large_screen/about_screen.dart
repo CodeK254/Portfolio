@@ -51,6 +51,7 @@ class AboutLargeScreen extends StatelessWidget {
                                   "🚀 Experienced Flutter Developer Ready to Bring Your Ideas to Life! 🚀",
                                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                     fontSize: 20,
+                                    color: Colors.grey.shade200,
                                   ),
                                 ),
                               ),
@@ -65,6 +66,7 @@ class AboutLargeScreen extends StatelessWidget {
                                         about[index]["label"],
                                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
                                           fontSize: 18,
+                                          color: Colors.blue,
                                         ),
                                       ),
                                       const SizedBox(
