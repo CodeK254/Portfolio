@@ -8,7 +8,7 @@ class HomeController extends GetxController{
     {"icon": FontAwesomeIcons.whatsapp, "label": "WhatsApp", "url": "https://wa.me/+254742143102", "color": Colors.green},
     {"icon": FontAwesomeIcons.instagram, "label": "Instagram", "url": "https://www.instagram.com/it_is_me_titus/", "color": Colors.redAccent.shade400},
     {"icon": Icons.mail, "label": "G-mail", "url": "mailto:codekarma1003@gmail.com?", "color": Colors.redAccent.shade700},
-    {"icon": FontAwesomeIcons.x, "label": "X(Twitter)", "url": "https://twitter.com/254_goat", "color": Colors.black},
+    {"icon": FontAwesomeIcons.x, "label": "X(Twitter)", "url": "https://twitter.com/CodeK254", "color": Colors.black},
     {"icon": FontAwesomeIcons.linkedinIn, "label": "LinkedIn", "url": "https://www.linkedin.com/in/titus-kariuki-b69a79218/", "color": Colors.blue.shade900},
   ];
 

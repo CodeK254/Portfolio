@@ -5,6 +5,7 @@ import 'package:portfolio/app/data/dummy.dart';
 import 'package:portfolio/app/services/launcher.dart';
 import 'package:portfolio/app/views/home/home_controller.dart';
 import "package:get/get.dart";
+import 'package:portfolio/app/widgets/spacing.dart';
 
 class AboutLargeScreen extends StatelessWidget {
   const AboutLargeScreen({
@@ -51,11 +52,13 @@ class AboutLargeScreen extends StatelessWidget {
                                 child: Text(
                                   "🚀 Experienced Flutter Developer Ready to Bring Your Ideas to Life! 🚀",
                                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    fontSize: 20,
-                                    color: Colors.grey.shade200,
+                                    fontSize: 25,
+                                    color: Colors.white,
                                   ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
+                              const Divider(),
                               ...List.generate(
                                 about.length, 
                                 (index) => Padding(
@@ -67,7 +70,7 @@ class AboutLargeScreen extends StatelessWidget {
                                         about[index]["label"],
                                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
                                           fontSize: 18,
-                                          color: Colors.blue,
+                                          color: Colors.white,
                                         ),
                                       ),
                                       const SizedBox(
@@ -77,12 +80,14 @@ class AboutLargeScreen extends StatelessWidget {
                                         about[index]["data"],
                                         style: Theme.of(context).textTheme.displaySmall!.copyWith(
                                           fontSize: 14,
+                                          color: Colors.white60
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
                               ),
+                              const CustomSpacing(height: .05),
                             ],
                           ),
                         ),
