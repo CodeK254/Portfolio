@@ -1,0 +1,183 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/app/views/home/services_controller.dart';
+import 'package:portfolio/app/widgets/spacing.dart';
+import 'package:portfolio/app/widgets/text_style.dart';
+
+class ServicesLargeScreen extends StatelessWidget {
+  ServicesLargeScreen({super.key});
+  final ServicesController servicesController = Get.put(ServicesController());
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Services Offered",
+                  style: TextStyle(
+                    fontSize: 23,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const CustomSpacing(height: .03),
+                GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                  ),
+                  physics: const ClampingScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: servicesController.services.length,
+                  itemBuilder: (context, index){
+                    return InkWell(
+                      hoverColor: Colors.green,
+                      onTap: (){
+
+                      },
+                      onHover: (value) {
+                        servicesController.resetColors();
+                        servicesController.tileColor[index].value = Colors.green;
+                      },
+                      child: Obx(
+                        () => Container(
+                          color: servicesController.tileColor[index].value,
+                          child: Stack(
+                            children: [
+                              Center(
+                                child: Opacity(
+                                  opacity: servicesController.tileColor[index].value == Colors.green ? .5 : 1,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        servicesController.services[index]["icon"],
+                                        size: 65,
+                                        color: Colors.white,
+                                      ),
+                                      const CustomSpacing(height: .02),
+                                      Text(
+                                        servicesController.services[index]["label"],
+                                        style: TextStyle(
+                                          fontSize: 25,
+                                          color: Colors.grey.shade100,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                child: Visibility(
+                                  visible: servicesController.tileColor[index].value == Colors.green,
+                                  child: Container(
+                                    color: Colors.grey.shade900,
+                                    width: MediaQuery.of(context).size.width * .32,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        servicesController.services[index]["description"],
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.grey.shade400,
+                                          fontWeight: FontWeight.normal,
+                                          overflow: TextOverflow.ellipsis
+                                        ),
+                                        maxLines: 20,
+                                      ),
+                                    ),
+                                  ).animate(
+                                    effects: [
+                                      const SlideEffect(
+                                        begin: Offset(0, 3),
+                                        end: Offset(0, 0),
+                                        duration: Duration(seconds: 2),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomServicesDisplay extends StatelessWidget {
+  final String label;
+  final List<Map> data;
+  const CustomServicesDisplay({
+    super.key, required this.label, required this.data,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Text(
+            label,
+            style: tStyle(23, 1, Colors.blueGrey.shade800),
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ...List.generate(
+                      10, 
+                      (index) => Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          color: Colors.grey.shade500,
+                          height: MediaQuery.of(context).size.height * 0.65,
+                          width: MediaQuery.of(context).size.width * 0.25,
+                          child: const Image(
+                            image: AssetImage("assets/images/eight.png"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
