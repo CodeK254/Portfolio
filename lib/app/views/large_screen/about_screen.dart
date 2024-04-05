@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/app/data/dummy.dart';
+import 'package:portfolio/app/services/launcher.dart';
 import 'package:portfolio/app/views/home/home_controller.dart';
 import "package:get/get.dart";
 
@@ -198,7 +199,7 @@ class AboutLargeScreen extends StatelessWidget {
                                                         ),
                                                         child: GestureDetector(
                                                           onTap: (){
-                                                            // openUrl(homeController.socialIcons[index]["url"], homeController);
+                                                            openUrl(homeController.socialIcons[index]["url"]);
                                                           },
                                                           child: Column(
                                                             children: [
