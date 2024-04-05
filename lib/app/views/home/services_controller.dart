@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,8 @@ import 'package:get/get.dart';
 class ServicesController extends GetxController with GetTickerProviderStateMixin{
   Animation? flipAnimation;
   AnimationController? flipAnimationController;
+  RxString time = "".obs;
+  RxString date = "".obs;
 
   List<Rx<Color>> tileColor = [
     Colors.grey.shade900.obs,
@@ -16,6 +19,24 @@ class ServicesController extends GetxController with GetTickerProviderStateMixin
     Colors.grey.shade900.obs,
     Colors.grey.shade900.obs,
   ];
+
+  void initiate() async {
+    final data = GetTime().stream;
+
+    data.listen((event) {
+      DateTime dateTime = DateTime.parse(event.toString());
+      date.value = formatDate(dateTime);
+      time.value = formatTime(dateTime);
+    });
+  }
+
+  String formatDate(DateTime dateTime){
+    return date.value = "${dateTime.day < 10 ? "0${dateTime.day}" : dateTime.day} ${dateTime.month < 10 ? "0${dateTime.month}" : dateTime.month}, ${dateTime.year < 10 ? "0${dateTime.year}" : dateTime.year}";
+  }
+
+  String formatTime(DateTime dateTime){
+    return time.value = "${dateTime.hour < 10 ? "0${dateTime.hour}" : dateTime.hour} : ${dateTime.minute < 10 ? "0${dateTime.minute}" : dateTime.minute} : ${dateTime.second < 10 ? "0${dateTime.second}" : dateTime.second}  ";
+  }
 
   void resetColors() {
     for(int i = 0; i < 6; i++){
@@ -104,6 +125,26 @@ Security & Compliance: Security is paramount. I prioritize implementing best pra
     ).animate(flipAnimationController!);
 
     flipAnimationController!.forward();
+
+    initiate();
+
     super.onInit();
   }
+}
+
+class GetTime{
+  // StreamController declaration
+  final _controller = StreamController<DateTime>();
+  
+  DateTime dateTime = DateTime.now();
+
+  // Updating Datetime
+  GetTime() {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      _controller.sink.add(dateTime);
+      dateTime = DateTime.now();
+    });
+  }
+
+  Stream<DateTime> get stream => _controller.stream;
 }

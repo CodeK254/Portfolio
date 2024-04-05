@@ -19,13 +19,27 @@ class ServicesLargeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Services Offered",
-                  style: TextStyle(
-                    fontSize: 23,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Services Offered",
+                      style: TextStyle(
+                        fontSize: 23,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Obx(
+                      () => Text(
+                        servicesController.time.toString(),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey.shade300,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const CustomSpacing(height: .03),
                 GridView.builder(

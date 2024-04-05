@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:portfolio/app/views/home/home_controller.dart';
 import 'package:portfolio/app/views/large_screen/about_screen.dart';
 import 'package:portfolio/app/views/large_screen/services_screen.dart';
+import 'package:portfolio/app/views/large_screen/testimonial_screen.dart';
 import 'package:portfolio/app/views/small_screen/about_screen.dart';
 import 'package:portfolio/responsive/responsive.dart';
 
@@ -24,6 +25,7 @@ class HomeScreen extends StatelessWidget {
       }
     });
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: ResponsiveWidgetScreen.isSmallScreen(context) ? AppBar(
         title: Text(
           "Full-Stack(Software) Developer",
@@ -108,6 +110,7 @@ class HomeScreen extends StatelessWidget {
             [
               AboutLargeScreen(scrollController: scrollController, homeController: homeController),
               ServicesLargeScreen(),
+              TestimonialScreen(),
             ], 
             homeController.selected.value
           ),
