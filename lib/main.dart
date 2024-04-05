@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/views/contact/contact_controller.dart';
-import 'package:portfolio/app/views/contact/map_side.dart';
+import 'package:portfolio/app/views/large_screen/map_side.dart';
 import 'package:portfolio/app/views/home/home.dart';
 import 'package:portfolio/app/views/home/home_controller.dart';
 import 'package:portfolio/app/views/loading/loading.dart';

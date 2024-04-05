@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class ServicesController extends GetxController with GetTickerProviderStateMixin{
   Animation? flipAnimation;
   AnimationController? flipAnimationController;
-  RxString time = "".obs;
+  RxString time = "00 : 00 : 00".obs;
   RxString date = "".obs;
 
   List<Rx<Color>> tileColor = [

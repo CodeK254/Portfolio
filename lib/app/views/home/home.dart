@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/views/home/home_controller.dart';
 import 'package:portfolio/app/views/large_screen/about_screen.dart';
+import 'package:portfolio/app/views/large_screen/map_side.dart';
 import 'package:portfolio/app/views/large_screen/services_screen.dart';
 import 'package:portfolio/app/views/large_screen/testimonial_screen.dart';
 import 'package:portfolio/app/views/small_screen/about_screen.dart';
@@ -111,6 +112,7 @@ class HomeScreen extends StatelessWidget {
               AboutLargeScreen(scrollController: scrollController, homeController: homeController),
               ServicesLargeScreen(),
               TestimonialScreen(),
+              ContactMeScreen(),
             ], 
             homeController.selected.value
           ),

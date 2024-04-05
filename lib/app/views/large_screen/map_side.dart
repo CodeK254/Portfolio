@@ -16,7 +16,7 @@ class ContactMeScreen extends StatefulWidget{
 class _ContactMeScreenState extends State<ContactMeScreen> {
   final Completer<GoogleMapController> googleMapController = Completer<GoogleMapController>();
 
-  final ContactController contactController = Get.find<ContactController>();
+  final ContactController contactController = Get.put(ContactController());
 
   bool visible = false;
   BitmapDescriptor? bitmapDescriptor;
@@ -56,7 +56,7 @@ class _ContactMeScreenState extends State<ContactMeScreen> {
                     title: "Code Karma",
                   ),
                   position: contactController.latLng.value,
-                  icon: bitmapDescriptor!,
+                  icon: BitmapDescriptor.defaultMarker,
                 ),
                 Marker(
                   markerId: const MarkerId("Karatina Town"),

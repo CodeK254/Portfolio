@@ -21,6 +21,7 @@ class ServicesLargeScreen extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text(
                       "Services Offered",
@@ -31,12 +32,53 @@ class ServicesLargeScreen extends StatelessWidget {
                       ),
                     ),
                     Obx(
-                      () => Text(
-                        servicesController.time.toString(),
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey.shade300,
+                      () => Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey.shade900,
+                          borderRadius: BorderRadius.circular(5),
+                          boxShadow: [
+                            BoxShadow(
+                              offset: const Offset(-3, -3),
+                              color: Colors.grey.shade800,
+                              blurRadius: 4,
+                            ),
+                            const BoxShadow(
+                              offset: Offset(3, 3),
+                              color: Colors.black,
+                              blurRadius: 7,
+                            ),
+                          ]
                         ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(
+                                Icons.timer,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                              const SizedBox(width: 12),
+                              Text(
+                                servicesController.time.toString(),
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey.shade300,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ).animate(
+                        autoPlay: true,
+                        effects: [
+                          const SlideEffect(
+                            begin: Offset(0, -2),
+                            end: Offset(0, 0),
+                            duration: Duration(milliseconds: 300),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -58,8 +100,12 @@ class ServicesLargeScreen extends StatelessWidget {
 
                       },
                       onHover: (value) {
-                        servicesController.resetColors();
-                        servicesController.tileColor[index].value = Colors.green;
+                        if(value){
+                          servicesController.resetColors();
+                          servicesController.tileColor[index].value = Colors.green;
+                        } else {
+                          servicesController.resetColors();
+                        }
                       },
                       child: Obx(
                         () => Container(
