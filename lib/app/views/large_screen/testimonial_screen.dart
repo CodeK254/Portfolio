@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
@@ -25,6 +26,7 @@ class TestimonialScreen extends StatelessWidget {
                       title: testimonialController.testimonials[index]["title"],
                       data: testimonialController.testimonials[index]["data"],
                       image: testimonialController.testimonials[index]["image"],
+                      selected: testimonialController.testimonials[index]["selected"],
                     )
                   )
                 ],
@@ -40,9 +42,10 @@ class TestimonialScreen extends StatelessWidget {
 class CustomTestimonialColumn extends StatelessWidget {
   final List<Map<String, dynamic>> data;
   final String title;
-  final String image;
+  final List<String> image;
+  final RxInt selected;
   const CustomTestimonialColumn({
-    super.key, required this.data, required this.title, required this.image,
+    super.key, required this.data, required this.title, required this.image, required this.selected,
   });
 
   @override
@@ -61,8 +64,10 @@ class CustomTestimonialColumn extends StatelessWidget {
             textColor: Colors.white,
             fontWeight: FontWeight.bold,
           ),
-          const CustomSpacing(height: .05),
+          const Divider(endIndent: 20),
+          const CustomSpacing(height: .03),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 flex: 2,
@@ -92,29 +97,66 @@ class CustomTestimonialColumn extends StatelessWidget {
                   ),
                 ),
               ),
-              CustomSpacing(width: .05),
+              const CustomSpacing(width: .05),
               Expanded(
                 flex: 3,
-                child: AspectRatio(
-                  aspectRatio: 2 / 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20)
+                child: Column(
+                  children: [
+                    AspectRatio(
+                      aspectRatio: 2 / 1,
+                      child: CarouselSlider(
+                        items: [
+                          ...List.generate(
+                            image.length, 
+                            (index) => Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20)
+                              ),
+                              child: Image(
+                                image: AssetImage(image[index]),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          )
+                        ],
+                        options: CarouselOptions(
+                          autoPlay: true,
+                          viewportFraction: 1,
+                          aspectRatio: 2 / 1,
+                          onPageChanged: (index, reason) => selected.value = index,
+                        ),
+                      ),
+                    ).animate(
+                      effects: [
+                        const FadeEffect(
+                          begin: 0,
+                          end: 1,
+                          delay: Duration(milliseconds: 500),
+                          duration: Duration(milliseconds: 2),
+                        )
+                      ]
                     ),
-                    child: Image(
-                      image: AssetImage(image),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ).animate(
-                  effects: [
-                    const FadeEffect(
-                      begin: 0,
-                      end: 1,
-                      delay: Duration(milliseconds: 500),
-                      duration: Duration(milliseconds: 2),
+                    Obx(
+                      () => Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ...List.generate(
+                            image.length, 
+                            (index) => Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 5,
+                                vertical: 12,
+                              ),
+                              child: CircleAvatar(
+                                radius: selected.value == index ? 5 : 3,
+                                backgroundColor: selected.value == index ? Colors.redAccent : Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     )
-                  ]
+                  ],
                 ),
               ),
             ],
