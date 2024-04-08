@@ -19,11 +19,12 @@ class HomeController extends GetxController{
   List<Map<String, dynamic>> navigation = [
     {"label": "About", "url": "/about"},
     {"label": "Services", "url": "/services"},
+    {"label": "Resume", "url": "/resume"},
     {"label": "Testimonial", "url": "/testimonial"},
     {"label": "Contact", "url": "/contact"},
   ];
 
-  RxInt selected = 0.obs;
+  RxInt selected = 2.obs;
 
   List<Color> colors = [
     Colors.black,

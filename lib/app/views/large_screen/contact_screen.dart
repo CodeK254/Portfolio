@@ -5,6 +5,7 @@ import 'package:portfolio/app/services/launcher.dart';
 import 'package:portfolio/app/views/contact/contact_controller.dart';
 import 'package:portfolio/app/widgets/spacing.dart';
 import 'package:portfolio/app/widgets/text.dart';
+import 'package:portfolio/app/widgets/title.dart';
 
 class ContactLargeScreen extends StatelessWidget {
   ContactLargeScreen({super.key});
@@ -21,32 +22,7 @@ class ContactLargeScreen extends StatelessWidget {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const CustomText(
-                        text: "Contact Me", 
-                        fontSize: 30, 
-                        textColor: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      const CustomSpacing(height: .01),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * .05,
-                            child: Divider(color: Colors.grey.shade300, thickness: 3),
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * .15,
-                            child: Divider(color: Colors.green.shade200, thickness: 1.5),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  const CustomLabel(label: "Contact Me"),
                   const CustomSpacing(height: .1),
                   Padding(
                     padding: EdgeInsets.symmetric(

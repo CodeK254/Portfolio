@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:portfolio/app/views/home/services_controller.dart';
 import 'package:portfolio/app/widgets/spacing.dart';
 import 'package:portfolio/app/widgets/text_style.dart';
+import 'package:portfolio/app/widgets/title.dart';
 
 class ServicesLargeScreen extends StatelessWidget {
   ServicesLargeScreen({super.key});
@@ -23,14 +24,8 @@ class ServicesLargeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Services Offered",
-                      style: TextStyle(
-                        fontSize: 23,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  const CustomLabel(label: "Services Offered"),
+                  const CustomSpacing(height: .1),
                     Obx(
                       () => Container(
                         decoration: BoxDecoration(
@@ -114,7 +109,7 @@ class ServicesLargeScreen extends StatelessWidget {
                             children: [
                               Center(
                                 child: Opacity(
-                                  opacity: servicesController.tileColor[index].value == Colors.green ? .5 : 1,
+                                  opacity: 1,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
