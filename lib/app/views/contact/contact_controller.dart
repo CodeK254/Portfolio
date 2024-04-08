@@ -1,5 +1,7 @@
 import "dart:async";
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:geolocator/geolocator.dart";
 import "package:get/get.dart";
 import "package:google_maps_flutter/google_maps_flutter.dart";
@@ -14,6 +16,33 @@ class ContactController extends GetxController{
 
   RxInt hovered = 0.obs;
   RxInt selected = 0.obs;
+
+  final List<Map<String, dynamic>> contactInfo = [
+    {
+      "icon": CupertinoIcons.mail,
+      "label": "Email Me",
+      "value": "codekarma1003@gmail.com",
+      "link": "mailto: codekarma1003@gmail.com"
+    },
+    {
+      "icon": FontAwesomeIcons.phone,
+      "label": "Call Me",
+      "value": "+(254)74 214 3102",
+      "link": "tel: +254742143102"
+    },
+    {
+      "icon": FontAwesomeIcons.whatsapp,
+      "label": "WhatsApp Me",
+      "value": "+(254)74 214 3102",
+      "link": "https://wa.me/+254742143102"
+    },
+    {
+      "icon": FontAwesomeIcons.github,
+      "label": "Follow Me",
+      "value": "https://github.com/CodeK254",
+      "link": "https://github.com/CodeK254",
+    },
+  ];
 
   Future<void> goToPlace(Completer<GoogleMapController> xController, LatLng origin) async{
     final GoogleMapController controller = await xController.future;
