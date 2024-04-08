@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/app/views/contact/contact_controller.dart';
 import 'package:portfolio/app/widgets/spacing.dart';
 import 'package:portfolio/app/widgets/text.dart';
 
 class ContactLargeScreen extends StatelessWidget {
-  const ContactLargeScreen({super.key});
+  ContactLargeScreen({super.key});
+
+  final ContactController contactController = Get.put(ContactController());
 
   @override
   Widget build(BuildContext context) {
@@ -56,19 +60,52 @@ class ContactLargeScreen extends StatelessWidget {
                     itemBuilder: (context, index){
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * .2,
-                          color: Colors.black,
-                        )
-                        .animate(
-                          effects: [
-                            SlideEffect(
-                              begin: const Offset(-10, 0),
-                              end: const Offset(0, 0),
-                              duration: const Duration(seconds: 1),
-                              delay: Duration(seconds: 1 * index),
+                        child: InkWell(
+                          onTap: (){
+                            
+                          },
+                          onHover: (value){
+                            contactController.hovered.value = index;
+                          },
+                          child: Obx(
+                            () => Container(
+                              height: MediaQuery.of(context).size.height * .2,
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).scaffoldBackgroundColor,
+                                borderRadius: BorderRadius.circular(6),
+                                boxShadow: [
+                                  contactController.hovered.value == index ? BoxShadow(
+                                    offset: const Offset(-3, -3),
+                                    color: Colors.grey.shade800,
+                                    blurRadius: 6,
+                                  ) : BoxShadow(
+                                    offset: const Offset(-3, -3),
+                                    color: Colors.grey.shade900,
+                                    blurRadius: 6,
+                                  ),
+                                  contactController.hovered.value == index ? const BoxShadow(
+                                    offset: Offset(3, 3),
+                                    color: Colors.black,
+                                    blurRadius: 6,
+                                  ): const BoxShadow(
+                                    offset: Offset(3, 3),
+                                    color: Colors.black,
+                                    blurRadius: 6,
+                                  ),
+                                ]
+                              ),
+                            )
+                            .animate(
+                              effects: [
+                                SlideEffect(
+                                  begin: const Offset(-10, 0),
+                                  end: const Offset(0, 0),
+                                  duration: const Duration(seconds: 1),
+                                  delay: Duration(seconds: 1 * index),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       );
                     }

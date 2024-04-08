@@ -12,6 +12,9 @@ class ContactController extends GetxController{
   final TextEditingController phone = TextEditingController();
   final TextEditingController response = TextEditingController();
 
+  RxInt hovered = 0.obs;
+  RxInt selected = 0.obs;
+
   Future<void> goToPlace(Completer<GoogleMapController> xController, LatLng origin) async{
     final GoogleMapController controller = await xController.future;
     controller.animateCamera(
@@ -25,8 +28,7 @@ class ContactController extends GetxController{
     );
   }
 
-  @override
-  void onInit() async {
+  initialize() async {
     bool locationStatus = await Geolocator.isLocationServiceEnabled();
     if(!locationStatus){
       await Geolocator.openLocationSettings();
@@ -40,7 +42,11 @@ class ContactController extends GetxController{
         onInit();
       }
     }
-    
-    super.onInit();
   }
+
+  // @override
+  // void onInit() async {
+  //   initialize();
+  //   super.onInit();
+  // }
 }
