@@ -1,6 +1,9 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:flutter_animate/flutter_animate.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:get/get.dart";
+import "package:percent_indicator/percent_indicator.dart";
 import "package:portfolio/app/views/home/resume_controller.dart";
 import "package:portfolio/app/widgets/spacing.dart";
 import "package:portfolio/app/widgets/text.dart";
@@ -86,6 +89,83 @@ class ResumeLargeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const CustomSpacing(height: .1),
+                  const CustomLabel(label: "Proficiency"),
+                  const CustomSpacing(height: .15),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.width * .05,
+                      vertical: 12,
+                    ),
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      physics: const ClampingScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: MediaQuery.of(context).size.height * .05,
+                        crossAxisSpacing: MediaQuery.of(context).size.height * .1,
+                        childAspectRatio: 5,
+                      ),
+                      itemCount: resumeController.learning.length, 
+                      itemBuilder: (context, index){
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * .2,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade900,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 24,
+                                vertical: 12,
+                              ),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      CustomText(
+                                        text: resumeController.learning[index]["language"].toString(), 
+                                        fontSize: 20, 
+                                        textColor: Colors.blueGrey.shade400,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      const CustomSpacing(width: .03),
+                                      CustomText(
+                                        text: "${resumeController.learning[index]["percentage"]}%", 
+                                        fontSize: 16, 
+                                        textColor: Colors.white60,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ],
+                                  ),
+                                  const CustomSpacing(height: .025),
+                                  LinearPercentIndicator(
+                                    percent: resumeController.learning[index]["percentage"] / 100,
+                                    animation: true,
+                                    backgroundColor: Colors.white,
+                                    fillColor: Colors.blueGrey.shade300,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                          .animate(
+                            effects: [
+                              SlideEffect(
+                                begin: const Offset(-10, 0),
+                                end: const Offset(0, 0),
+                                duration: const Duration(seconds: 1),
+                                delay: Duration(seconds: 1 * index),
+                              ),
+                            ],
+                          ),
+                        );
+                      }
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -109,12 +189,6 @@ class ResumeLargeScreen extends StatelessWidget {
         textColor: Colors.green,
         fontWeight: FontWeight.bold,
       ),
-      // subtitle: CustomText(
-      //   text: subtitle,
-      //   fontSize: 20, 
-      //   textColor: Colors.green,
-      //   fontWeight: FontWeight.bold,
-      // ),
       subtitle: Column(
         children: [
           ...List.generate(

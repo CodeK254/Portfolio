@@ -26,4 +26,31 @@ modernized user interface / user experience (UI/UX) for both Android and iOS, Wi
       ]
     },
   ];
+
+  List<Map<String, dynamic>> learning = [
+    {
+      "language": "PHP",
+      "percentage": 90,
+    },
+    {
+      "language": "Java",
+      "percentage": 60,
+    },
+    {
+      "language": "Dart",
+      "percentage": 98,
+    },
+    {
+      "language": "Laravel",
+      "percentage": 80,
+    },
+    {
+      "language": "Flutter",
+      "percentage": 98,
+    },
+    {
+      "language": "C++",
+      "percentage": 80,
+    },
+  ];
 }
