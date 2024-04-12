@@ -6,7 +6,10 @@ import 'package:portfolio/app/views/large_screen/about_screen.dart';
 import 'package:portfolio/app/views/large_screen/contact_screen.dart';
 import 'package:portfolio/app/views/large_screen/resume_screen.dart';
 import 'package:portfolio/app/views/large_screen/services_screen.dart';
-import 'package:portfolio/app/views/large_screen/testimonial_screen.dart';
+import 'package:portfolio/app/views/medium_screen/about_screen.dart';
+import 'package:portfolio/app/views/medium_screen/resume_screen.dart';
+import 'package:portfolio/app/views/medium_screen/services_screen.dart';
+import 'package:portfolio/app/views/medium_screen/testimonial_screen.dart';
 import 'package:portfolio/app/views/small_screen/about_screen.dart';
 import 'package:portfolio/responsive/responsive.dart';
 
@@ -113,15 +116,20 @@ class HomeScreen extends StatelessWidget {
               AboutLargeScreen(scrollController: scrollController, homeController: homeController),
               ServicesLargeScreen(),
               ResumeLargeScreen(),
-              TestimonialScreen(),
+              TestimonialMediumScreen(),
               ContactLargeScreen(),
-            ], 
+            ],
             homeController.selected.value
           ),
-          mediumScreen: Container(
-            color: Colors.green,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+          mediumScreen: homeController.toDisplay(
+            [
+              AboutMediumScreen(scrollController: scrollController, homeController: homeController),
+              ServicesMediumScreen(),
+              ResumeMediumScreen(),
+              TestimonialMediumScreen(),
+              ContactLargeScreen(),
+            ],
+            homeController.selected.value
           ),
           smallScreen: AboutSmallScreen(homeController: homeController),
         ),

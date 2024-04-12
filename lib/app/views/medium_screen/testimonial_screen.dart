@@ -1,13 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/views/home/testimonial_controller.dart';
 import 'package:portfolio/app/widgets/spacing.dart';
 import 'package:portfolio/app/widgets/text.dart';
+import 'package:portfolio/responsive/responsive.dart';
 
-class TestimonialScreen extends StatelessWidget {
-  TestimonialScreen({super.key});
+class TestimonialMediumScreen extends StatelessWidget {
+  TestimonialMediumScreen({super.key});
   final TestimonialController testimonialController = Get.put(TestimonialController());
 
   @override
@@ -66,7 +68,101 @@ class CustomTestimonialColumn extends StatelessWidget {
           ),
           const Divider(endIndent: 20),
           const CustomSpacing(height: .03),
-          Row(
+          ResponsiveWidgetScreen.isLargeScreen(context) ? Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 2,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      width: 2,
+                      color: Colors.white60,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ...List.generate(
+                          data.length, 
+                          (index) => CustomTestimonialDisplay(
+                            label: data[index]["label"],
+                            value: data[index]["value"],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const CustomSpacing(width: .05),
+              Expanded(
+                flex: 3,
+                child: Column(
+                  children: [
+                    AspectRatio(
+                      aspectRatio: 2 / 1,
+                      child: CarouselSlider(
+                        items: [
+                          ...List.generate(
+                            image.length, 
+                            (index) => Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20)
+                              ),
+                              child: Image(
+                                image: AssetImage(image[index]),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          )
+                        ],
+                        options: CarouselOptions(
+                          autoPlay: true,
+                          viewportFraction: 1,
+                          aspectRatio: 2 / 1,
+                          onPageChanged: (index, reason) => selected.value = index,
+                        ),
+                      ),
+                    ).animate(
+                      effects: [
+                        const FadeEffect(
+                          begin: 0,
+                          end: 1,
+                          delay: Duration(milliseconds: 500),
+                          duration: Duration(milliseconds: 2),
+                        )
+                      ]
+                    ),
+                    Obx(
+                      () => Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ...List.generate(
+                            image.length, 
+                            (index) => Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 5,
+                                vertical: 12,
+                              ),
+                              child: CircleAvatar(
+                                radius: selected.value == index ? 5 : 3,
+                                backgroundColor: selected.value == index ? Colors.redAccent : Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ) : Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
@@ -177,9 +273,33 @@ class CustomTestimonialDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical  : 16.0),
-      child: Row(
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      child: ResponsiveWidgetScreen.isLargeScreen(context) ? Row(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomText(
+            text: label, 
+            fontSize: 16, 
+            textColor: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+          const CustomSpacing(width: .012),
+          Container(
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.of(context).size.width * .215,
+              minWidth: MediaQuery.of(context).size.width * .2,
+            ),
+            child: CustomText(
+              text: value, 
+              fontSize: 16, 
+              textColor: Colors.white,
+            ),
+          ),
+        ],
+      ) : Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomText(
             text: label, 

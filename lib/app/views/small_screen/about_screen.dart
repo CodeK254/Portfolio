@@ -5,8 +5,6 @@ import 'package:portfolio/app/data/dummy.dart';
 import 'package:portfolio/app/views/home/home_controller.dart';
 import "package:get/get.dart";
 
-
-
 class AboutSmallScreen extends StatelessWidget {
   const AboutSmallScreen({
     super.key,
@@ -20,21 +18,6 @@ class AboutSmallScreen extends StatelessWidget {
     return Obx(
       () => Stack(
         children: [
-          Image(
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.9,
-            image: const AssetImage("assets/images/bg.jpg"),
-            fit: BoxFit.cover,
-          ).animate(
-            effects: [
-              const FadeEffect(
-                begin: 1.0,
-                end: .2,
-                duration: Duration(seconds: 3),
-                delay: Duration(seconds: 2),
-              ),
-            ],
-          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(

@@ -7,8 +7,8 @@ import 'package:portfolio/app/views/home/home_controller.dart';
 import "package:get/get.dart";
 import 'package:portfolio/app/widgets/spacing.dart';
 
-class AboutLargeScreen extends StatelessWidget {
-  const AboutLargeScreen({
+class AboutMediumScreen extends StatelessWidget {
+  const AboutMediumScreen({
     super.key,
     required this.scrollController,
     required this.homeController,
@@ -102,7 +102,7 @@ class AboutLargeScreen extends StatelessWidget {
                       flex: 2,
                       child: ListView(
                         children: [
-                          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                          SizedBox(height: MediaQuery.of(context).size.height * 0.025),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -140,7 +140,7 @@ class AboutLargeScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: MediaQuery.of(context).size.height * .035),
+                              SizedBox(height: MediaQuery.of(context).size.height * .03),
                               Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,7 +162,7 @@ class AboutLargeScreen extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                                  SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                                   Container(
                                     decoration: BoxDecoration(
                                       color: Theme.of(context).scaffoldBackgroundColor,

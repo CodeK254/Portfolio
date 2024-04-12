@@ -6,6 +6,7 @@ import 'package:portfolio/app/views/contact/contact_controller.dart';
 import 'package:portfolio/app/widgets/spacing.dart';
 import 'package:portfolio/app/widgets/text.dart';
 import 'package:portfolio/app/widgets/title.dart';
+import 'package:portfolio/responsive/responsive.dart';
 
 class ContactLargeScreen extends StatelessWidget {
   ContactLargeScreen({super.key});
@@ -36,7 +37,7 @@ class ContactLargeScreen extends StatelessWidget {
                         crossAxisCount: 2,
                         mainAxisSpacing: MediaQuery.of(context).size.height * .05,
                         crossAxisSpacing: MediaQuery.of(context).size.height * .1,
-                        childAspectRatio: 4,
+                        childAspectRatio: ResponsiveWidgetScreen.isLargeScreen(context) ? 4 : 3.5,
                       ),
                       itemCount: contactController.contactInfo.length, 
                       itemBuilder: (context, index){
@@ -113,7 +114,6 @@ class ContactLargeScreen extends StatelessWidget {
                                                 text: contactController.contactInfo[index]["value"], 
                                                 fontSize: 14, 
                                                 textColor: Colors.blueGrey.shade200,
-                                                // fontWeight: FontWeight.bold,
                                               ),
                                             ],
                                           ),
@@ -139,7 +139,7 @@ class ContactLargeScreen extends StatelessWidget {
                       }
                     ),
                   ),
-                  const CustomSpacing(height: .1),
+                  ResponsiveWidgetScreen.isLargeScreen(context) ? const CustomSpacing(height: .1) : const CustomSpacing(height: .2),
                   const Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

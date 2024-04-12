@@ -7,8 +7,9 @@ class CustomText extends StatelessWidget {
   final Color textColor;
   final Color? backgroundColor;
   final bool? centerText;
+  final FontStyle? fontStyle;
   const CustomText({
-    super.key, required this.text, required this.fontSize, this.fontWeight, required this.textColor, this.backgroundColor, this.centerText,
+    super.key, required this.text, required this.fontSize, this.fontWeight, required this.textColor, this.backgroundColor, this.centerText, this.fontStyle,
   });
 
   @override
@@ -20,6 +21,7 @@ class CustomText extends StatelessWidget {
         color: textColor,
         fontWeight: fontWeight ?? FontWeight.normal,
         backgroundColor: backgroundColor ?? Colors.transparent,
+        fontStyle: fontStyle ?? FontStyle.normal,
       ),
       textAlign: centerText == true ? TextAlign.center : TextAlign.left,
     );
