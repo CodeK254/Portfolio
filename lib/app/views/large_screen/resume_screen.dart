@@ -157,8 +157,8 @@ class ResumeLargeScreen extends StatelessWidget {
                               SlideEffect(
                                 begin: const Offset(-10, 0),
                                 end: const Offset(0, 0),
-                                duration: const Duration(seconds: 1),
-                                delay: Duration(seconds: 1 * index),
+                                duration: const Duration(milliseconds: 500),
+                                delay: Duration(milliseconds: 500 * index),
                               ),
                             ],
                           ),
