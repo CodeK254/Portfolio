@@ -157,12 +157,12 @@ class CustomTestimonialColumn extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
             ],
-          ) : Row(
+          ) : ResponsiveWidgetScreen.isMediumScreen(context) ? Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
@@ -229,8 +229,8 @@ class CustomTestimonialColumn extends StatelessWidget {
                           end: 1,
                           delay: Duration(milliseconds: 500),
                           duration: Duration(milliseconds: 2),
-                        )
-                      ]
+                        ),
+                      ],
                     ),
                     Obx(
                       () => Row(
@@ -254,6 +254,94 @@ class CustomTestimonialColumn extends StatelessWidget {
                     )
                   ],
                 ),
+              ),
+            ],
+          ) : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    width: 2,
+                    color: Colors.white60,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ...List.generate(
+                        data.length,
+                        (index) => CustomTestimonialDisplay(
+                          label: data[index]["label"],
+                          value: data[index]["value"],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              const CustomSpacing(height: .05),
+              Column(
+                children: [
+                  AspectRatio(
+                    aspectRatio: 2 / 1,
+                    child: CarouselSlider(
+                      items: [
+                        ...List.generate(
+                          image.length, 
+                          (index) => Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20)
+                            ),
+                            child: Image(
+                              image: AssetImage(image[index]),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                      ],
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        viewportFraction: 1,
+                        aspectRatio: 2 / 1,
+                        onPageChanged: (index, reason) => selected.value = index,
+                      ),
+                    ),
+                  ).animate(
+                    effects: [
+                      const FadeEffect(
+                        begin: 0,
+                        end: 1,
+                        delay: Duration(milliseconds: 500),
+                        duration: Duration(milliseconds: 2),
+                      ),
+                    ],
+                  ),
+                  Obx(
+                    () => Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ...List.generate(
+                          image.length, 
+                          (index) => Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 5,
+                              vertical: 12,
+                            ),
+                            child: CircleAvatar(
+                              radius: selected.value == index ? 5 : 3,
+                              backgroundColor: selected.value == index ? Colors.redAccent : Colors.grey,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ],
           ),
@@ -291,13 +379,13 @@ class CustomTestimonialDisplay extends StatelessWidget {
               minWidth: MediaQuery.of(context).size.width * .2,
             ),
             child: CustomText(
-              text: value, 
-              fontSize: 16, 
+              text: value,
+              fontSize: 16,
               textColor: Colors.white,
             ),
           ),
         ],
-      ) : Column(
+      ) : ResponsiveWidgetScreen.isMediumScreen(context) ? Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -314,6 +402,28 @@ class CustomTestimonialDisplay extends StatelessWidget {
             textColor: Colors.white,
           ),
         ],
+      ) : Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.05,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomText(
+              text: label, 
+              fontSize: 16, 
+              textColor: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+            const CustomSpacing(width: .012),
+            CustomText(
+              text: value,
+              fontSize: 16,
+              textColor: Colors.white,
+            ),
+          ],
+        ),
       ),
     );
   }

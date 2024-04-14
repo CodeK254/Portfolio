@@ -11,6 +11,9 @@ import 'package:portfolio/app/views/medium_screen/resume_screen.dart';
 import 'package:portfolio/app/views/medium_screen/services_screen.dart';
 import 'package:portfolio/app/views/medium_screen/testimonial_screen.dart';
 import 'package:portfolio/app/views/small_screen/about_screen.dart';
+import 'package:portfolio/app/views/small_screen/contact_screen.dart';
+import 'package:portfolio/app/views/small_screen/resume_screen.dart';
+import 'package:portfolio/app/views/small_screen/services_screen.dart';
 import 'package:portfolio/responsive/responsive.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,23 +40,29 @@ class HomeScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.titleSmall,
         ),
         actions: [
-          PopupMenuButton(
-            itemBuilder: (context){
-              return [
-                ...List.generate(
-                  homeController.navigation.length, 
-                  (index) => PopupMenuItem(
-                    child: Text(
-                      homeController.navigation[index]["label"],
-                      style: Theme.of(context).textTheme.displayMedium,
+          Obx(
+            () => PopupMenuButton(
+              initialValue: homeController.selected.value,
+              color: Colors.black,
+              itemBuilder: (context){
+                return [
+                  ...List.generate(
+                    homeController.navigation.length, 
+                    (index) => PopupMenuItem(
+                      child: Text(
+                        homeController.navigation[index]["label"],
+                        style: Theme.of(context).textTheme.displayMedium,
+                      ),
+                      onTap: (){
+                        homeController.selected.value = index;
+                        homeController.setAllBlack();
+                        homeController.colors[homeController.selected.value] = Colors.white;
+                      },
                     ),
-                    onTap: (){
-                      Get.toNamed(homeController.navigation[index]["url"]);
-                    },
                   ),
-                ),
-              ];
-            }
+                ];
+              }
+            ),
           ),
         ],
       ) : PreferredSize(
@@ -80,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                       homeController.setAllBlack();
                       homeController.colors[homeController.selected.value] = Colors.white;
                     },
-                    child: Padding(
+                    child: Padding( 
                       padding: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width * 0.03,
                         vertical: 6,
@@ -131,7 +140,16 @@ class HomeScreen extends StatelessWidget {
             ],
             homeController.selected.value
           ),
-          smallScreen: AboutSmallScreen(homeController: homeController),
+          smallScreen: homeController.toDisplay(
+            [
+              AboutSmallScreen(scrollController: scrollController, homeController: homeController),
+              ServicesSmallScreen(),
+              ResumeSmallScreen(),
+              TestimonialMediumScreen(),
+              ContactSmallScreen(),
+            ],
+            homeController.selected.value
+          ),
         ),
       ),
     );
