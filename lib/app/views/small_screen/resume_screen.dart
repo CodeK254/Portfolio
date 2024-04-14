@@ -31,6 +31,7 @@ class ResumeSmallScreen extends StatelessWidget {
                     children: [
                       Obx(
                         () => Stepper(
+                          physics: const ClampingScrollPhysics(),
                           controlsBuilder: (context, details) {
                             return Container();
                           },
@@ -89,11 +90,14 @@ class ResumeSmallScreen extends StatelessWidget {
                                           fontStyle: FontStyle.italic,
                                         ),
                                         const SizedBox(width: 10),
-                                        CustomText(
-                                          text: "${resumeController.workExperience[index]["subtitle"]}",
-                                          fontSize: 18, 
-                                          textColor: Colors.white,
-                                          fontStyle: FontStyle.italic,
+                                        SizedBox(
+                                          width: MediaQuery.of(context).size.width * .7,
+                                          child: CustomText(
+                                            text: "${resumeController.workExperience[index]["subtitle"]}",
+                                            fontSize: 18, 
+                                            textColor: Colors.white,
+                                            fontStyle: FontStyle.italic,
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -133,21 +137,15 @@ class ResumeSmallScreen extends StatelessWidget {
                       horizontal: MediaQuery.of(context).size.width * .05,
                       vertical: 12,
                     ),
-                    child: GridView.builder(
+                    child: ListView.builder(
                       shrinkWrap: true,
                       physics: const ClampingScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 1,
-                        mainAxisSpacing: MediaQuery.of(context).size.height * .05,
-                        crossAxisSpacing: MediaQuery.of(context).size.height * .1,
-                        childAspectRatio: 5,
-                      ),
-                      itemCount: resumeController.learning.length, 
+                      itemCount: resumeController.resumeInfo.length,
                       itemBuilder: (context, index){
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 8.0),
                           child: Container(
-                            height: MediaQuery.of(context).size.height * .2,
+                            height: MediaQuery.of(context).size.height * .12,
                             decoration: BoxDecoration(
                               color: Colors.grey.shade900,
                             ),
@@ -201,7 +199,7 @@ class ResumeSmallScreen extends StatelessWidget {
                           ),
                         );
                       }
-                    ),
+                    )
                   ),
                 ],
               ),

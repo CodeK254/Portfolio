@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -402,28 +403,29 @@ class CustomTestimonialDisplay extends StatelessWidget {
             textColor: Colors.white,
           ),
         ],
-      ) : Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.05,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomText(
-              text: label, 
-              fontSize: 16, 
-              textColor: Colors.white,
-              fontWeight: FontWeight.bold,
+      ) : Row(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CustomText(
+            text: label, 
+            fontSize: MediaQuery.of(context).size.width > 580 ? 16 : 14, 
+            textColor: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+          const CustomSpacing(width: .012),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: CustomText(
+                text: value,
+                fontSize: MediaQuery.of(context).size.width > 580 ? 16 : 14,
+                textColor: Colors.white,
+              ),
             ),
-            const CustomSpacing(width: .012),
-            CustomText(
-              text: value,
-              fontSize: 16,
-              textColor: Colors.white,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
