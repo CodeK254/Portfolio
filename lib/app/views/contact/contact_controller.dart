@@ -22,25 +22,29 @@ class ContactController extends GetxController{
       "icon": CupertinoIcons.mail,
       "label": "Email Me",
       "value": "codekarma1003@gmail.com",
-      "link": "mailto: codekarma1003@gmail.com"
+      "link": "mailto: codekarma1003@gmail.com",
+      "color": Colors.redAccent,
     },
     {
-      "icon": FontAwesomeIcons.phone,
+      "icon": CupertinoIcons.phone,
       "label": "Call Me",
       "value": "+(254)74 214 3102",
-      "link": "tel: +254742143102"
+      "link": "tel: +254742143102",
+      "color": Colors.blue.shade700,
     },
     {
       "icon": FontAwesomeIcons.whatsapp,
       "label": "WhatsApp Me",
       "value": "+(254)74 214 3102",
-      "link": "https://wa.me/+254742143102"
+      "link": "https://wa.me/+254742143102",
+      "color": Colors.teal,
     },
     {
       "icon": FontAwesomeIcons.github,
       "label": "Follow Me",
       "value": "https://github.com/CodeK254",
       "link": "https://github.com/CodeK254",
+      "color": Colors.black,
     },
   ];
 

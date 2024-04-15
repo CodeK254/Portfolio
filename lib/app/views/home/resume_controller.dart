@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ResumeController extends GetxController{
@@ -51,26 +52,32 @@ modernized user interface / user experience (UI/UX) for both Android and iOS, Wi
     {
       "language": "PHP",
       "percentage": 90,
+      "color": Colors.blueGrey,
     },
     {
       "language": "Java",
       "percentage": 60,
+      "color": Colors.green,
     },
     {
       "language": "Dart",
       "percentage": 98,
+      "color": Colors.blue,
     },
     {
       "language": "Laravel",
       "percentage": 80,
+      "color": Colors.redAccent.shade400,
     },
     {
       "language": "Flutter",
       "percentage": 98,
+      "color": Colors.blue,
     },
     {
       "language": "C++",
       "percentage": 80,
+      "color": Colors.blue.shade900,
     },
   ];
 }

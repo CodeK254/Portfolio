@@ -143,7 +143,7 @@ class ResumeSmallScreen extends StatelessWidget {
                       itemCount: resumeController.learning.length,
                       itemBuilder: (context, index){
                         return Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
+                          padding: const EdgeInsets.only(bottom: 16.0),
                           child: Container(
                             height: MediaQuery.of(context).size.height * .12,
                             decoration: BoxDecoration(
@@ -181,7 +181,7 @@ class ResumeSmallScreen extends StatelessWidget {
                                     animation: true,
                                     backgroundColor: Colors.white,
                                     fillColor: Colors.blueGrey.shade300,
-                                    progressColor: Colors.green.shade700,
+                                    progressColor: resumeController.learning[index]["color"],
                                   ),
                                 ],
                               ),
@@ -189,9 +189,9 @@ class ResumeSmallScreen extends StatelessWidget {
                           )
                           .animate(
                             effects: [
-                              SlideEffect(
-                                begin: const Offset(-10, 0),
-                                end: const Offset(0, 0),
+                              FadeEffect(
+                                begin: 0,
+                                end: 1,
                                 duration: const Duration(milliseconds: 500),
                                 delay: Duration(milliseconds: 500 * index),
                               ),

@@ -131,11 +131,11 @@ class AboutSmallScreen extends StatelessWidget {
                               ),
                             ).animate(
                               effects: [
-                                SlideEffect(
-                                  begin: const Offset(-10, 0),
-                                  end: const Offset(0, 0),
-                                  duration: const Duration(seconds: 2),
-                                  delay: Duration(seconds: index * 2),
+                                FadeEffect(
+                                  begin: 0,
+                                  end: 1,
+                                  duration: const Duration(seconds: 1),
+                                  delay: Duration(seconds: index * 1),
                                 ),
                               ],
                             ),
@@ -182,11 +182,11 @@ class AboutSmallScreen extends StatelessWidget {
                                         ),
                                       ).animate(
                                         effects: [
-                                          SlideEffect(
-                                            begin: const Offset(20, 0),
-                                            end: const Offset(0, 0),
-                                            delay: Duration(seconds: 3 + (index + 1)),
-                                            duration: const Duration(seconds: 1),
+                                          FadeEffect(
+                                            begin: 0,
+                                            end: 1,
+                                            delay: Duration(milliseconds: 2000 + (index * 500)),
+                                            duration: const Duration(milliseconds: 500),
                                           ),
                                         ],
                                       ),

@@ -91,10 +91,10 @@ class ContactLargeScreen extends StatelessWidget {
                                         children: [
                                           CircleAvatar(
                                             radius: 20,
-                                            backgroundColor: Colors.grey.shade700,
+                                            backgroundColor: Colors.white60,
                                             child: Icon(
                                               contactController.contactInfo[index]["icon"],
-                                              color: Colors.green.shade300,
+                                              color: contactController.contactInfo[index]["color"],
                                               size: 25,
                                             ),
                                           ),
@@ -125,9 +125,9 @@ class ContactLargeScreen extends StatelessWidget {
                               )
                               .animate(
                                 effects: [
-                                  SlideEffect(
-                                    begin: const Offset(-10, 0),
-                                    end: const Offset(0, 0),
+                                  FadeEffect(
+                                    begin: 0,
+                                    end: 1,
                                     duration: const Duration(seconds: 1),
                                     delay: Duration(seconds: 1 * index),
                                   ),

@@ -4,9 +4,8 @@ import "package:portfolio/app/widgets/text.dart";
 
 class CustomLabel extends StatelessWidget {
   final String label;
-  final double? fontSize;
   const CustomLabel({
-    super.key, required this.label, this.fontSize,
+    super.key, required this.label,
   });
 
   @override
@@ -16,7 +15,7 @@ class CustomLabel extends StatelessWidget {
       children: [
         CustomText(
           text: label, 
-          fontSize: fontSize ?? 30, 
+          fontSize: MediaQuery.of(context).size.width < 580 ? 25 : 30, 
           textColor: Colors.white,
           fontWeight: FontWeight.bold,
         ),
