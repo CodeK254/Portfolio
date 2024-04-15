@@ -27,24 +27,23 @@ class AboutMediumScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey,
-                            width: 1,
+                child: SingleChildScrollView(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center ,
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.grey,
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SingleChildScrollView(
-                            controller: scrollController,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -94,184 +93,184 @@ class AboutMediumScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .02,
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: ListView(
-                        children: [
-                          SizedBox(height: MediaQuery.of(context).size.height * 0.025),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.3,
-                                height: MediaQuery.of(context).size.height * 0.4,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.grey.shade100,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.shade700,
-                                      offset: const Offset(-6, -6),
-                                      blurRadius: 14,
-                                    ),
-                                    const BoxShadow(
-                                      color: Colors.black,
-                                      offset: Offset(6, 6),
-                                      blurRadius: 19,
-                                    ),
-                                  ],
-                                  image: const DecorationImage(
-                                    image: AssetImage("assets/launcher/file.png"),
-                                  )
-                                ),
-                              ).animate(
-                                effects: [
-                                  const SlideEffect(
-                                    begin: Offset(0, -10),
-                                    end: Offset(0, 0),
-                                    delay: Duration(seconds: 1),
-                                    duration: Duration(seconds: 1),
-                                    curve: Curves.bounceOut
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: MediaQuery.of(context).size.height * .03),
-                              Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Titus Kariuki",
-                                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(height: MediaQuery.of(context).size.height * .01),
-                                  AnimatedTextKit(
-                                    totalRepeatCount: 1,
-                                    animatedTexts: [
-                                      TypewriterAnimatedText(
-                                        "Freelanced from Nairobi, Kenya. Proficient in Dart language, Flutter Framework, PHP and LARAVEL, beginner in Arduino Programming.",
-                                        textStyle: Theme.of(context).textTheme.displaySmall,
-                                        speed: const Duration(milliseconds: 50),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .02,
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                          children: [
+                            SizedBox(height: MediaQuery.of(context).size.height * 0.025),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Container(
+                                  width: MediaQuery.of(context).size.width * 0.3,
+                                  height: MediaQuery.of(context).size.height * 0.4,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.grey.shade100,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.shade700,
+                                        offset: const Offset(-6, -6),
+                                        blurRadius: 14,
+                                      ),
+                                      const BoxShadow(
+                                        color: Colors.black,
+                                        offset: Offset(6, 6),
+                                        blurRadius: 19,
                                       ),
                                     ],
+                                    image: const DecorationImage(
+                                      image: AssetImage("assets/launcher/file.png"),
+                                    )
                                   ),
-                                  SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: Theme.of(context).scaffoldBackgroundColor,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          offset: const Offset(-5, -5),
-                                          color: Colors.grey.shade900,
-                                          blurRadius: 10,
-                                        ),
-                                        const BoxShadow(
-                                          offset: Offset(5, 5),
-                                          color: Colors.black,
-                                          blurRadius: 20,
-                                        ),
-                                      ]
+                                ).animate(
+                                  effects: [
+                                    const SlideEffect(
+                                      begin: Offset(0, -10),
+                                      end: Offset(0, 0),
+                                      delay: Duration(seconds: 1),
+                                      duration: Duration(seconds: 1),
+                                      curve: Curves.bounceOut
                                     ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              mainAxisSize: MainAxisSize.min,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              children: [
-                                                SingleChildScrollView(
-                                                  scrollDirection: Axis.horizontal,
-                                                  child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    children: [
-                                                      ...List.generate(
-                                                        homeController.socialIcons.length, (index) => Padding(
-                                                          padding: EdgeInsets.symmetric(
-                                                            horizontal: MediaQuery.of(context).size.width * 0.01,
-                                                            vertical: 8,
-                                                          ),
-                                                          child: GestureDetector(
-                                                            onTap: (){
-                                                              openUrl(homeController.socialIcons[index]["url"]);
-                                                            },
-                                                            child: Column(
-                                                              children: [
-                                                                Icon(
-                                                                  homeController.socialIcons[index]["icon"],
-                                                                  size: 22,
-                                                                  color: homeController.socialIcons[index]["color"],
-                                                                ),
-                                                                const SizedBox(height: 3),
-                                                                Text(
-                                                                  homeController.socialIcons[index]["label"],
-                                                                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                                                                    fontSize: 10,
+                                  ],
+                                ),
+                                SizedBox(height: MediaQuery.of(context).size.height * .03),
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Titus Kariuki",
+                                      style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(height: MediaQuery.of(context).size.height * .01),
+                                    AnimatedTextKit(
+                                      totalRepeatCount: 1,
+                                      animatedTexts: [
+                                        TypewriterAnimatedText(
+                                          "Freelanced from Nairobi, Kenya. Proficient in Dart language, Flutter Framework, PHP and LARAVEL, beginner in Arduino Programming.",
+                                          textStyle: Theme.of(context).textTheme.displaySmall,
+                                          speed: const Duration(milliseconds: 50),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).scaffoldBackgroundColor,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            offset: const Offset(-5, -5),
+                                            color: Colors.grey.shade900,
+                                            blurRadius: 10,
+                                          ),
+                                          const BoxShadow(
+                                            offset: Offset(5, 5),
+                                            color: Colors.black,
+                                            blurRadius: 20,
+                                          ),
+                                        ]
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                mainAxisSize: MainAxisSize.min,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                children: [
+                                                  SingleChildScrollView(
+                                                    scrollDirection: Axis.horizontal,
+                                                    child: Row(
+                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                      children: [
+                                                        ...List.generate(
+                                                          homeController.socialIcons.length, (index) => Padding(
+                                                            padding: EdgeInsets.symmetric(
+                                                              horizontal: MediaQuery.of(context).size.width * 0.01,
+                                                              vertical: 8,
+                                                            ),
+                                                            child: GestureDetector(
+                                                              onTap: (){
+                                                                openUrl(homeController.socialIcons[index]["url"]);
+                                                              },
+                                                              child: Column(
+                                                                children: [
+                                                                  Icon(
+                                                                    homeController.socialIcons[index]["icon"],
+                                                                    size: 22,
+                                                                    color: homeController.socialIcons[index]["color"],
                                                                   ),
-                                                                )
-                                                              ],
+                                                                  const SizedBox(height: 3),
+                                                                  Text(
+                                                                    homeController.socialIcons[index]["label"],
+                                                                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                                                                      fontSize: 10,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                              ),
                                                             ),
+                                                          ).animate(
+                                                            effects: [
+                                                              SlideEffect(
+                                                                begin: const Offset(20, 0),
+                                                                end: const Offset(0, 0),
+                                                                delay: Duration(seconds: (index + 1)),
+                                                                duration: const Duration(milliseconds: 300),
+                                                              ),
+                                                            ],
                                                           ),
-                                                        ).animate(
-                                                          effects: [
-                                                            SlideEffect(
-                                                              begin: const Offset(20, 0),
-                                                              end: const Offset(0, 0),
-                                                              delay: Duration(seconds: (index + 1)),
-                                                              duration: const Duration(milliseconds: 300),
-                                                            ),
-                                                          ],
                                                         ),
-                                                      ),
-                                                    ],
+                                                      ],
+                                                    ),
                                                   ),
+                                                ],
+                                              ),
+                                            ),
+                                            const Divider(
+                                              thickness: .3,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  "Copyright policy ",
+                                                  style: Theme.of(context).textTheme.displaySmall,
+                                                ),
+                                                const Icon(
+                                                  Icons.copyright,
+                                                  size: 18,
+                                                  color: Colors.blueGrey,
+                                                ),
+                                                Text(
+                                                  " December 25, 2023",
+                                                  style: Theme.of(context).textTheme.displaySmall,
                                                 ),
                                               ],
                                             ),
-                                          ),
-                                          const Divider(
-                                            thickness: .3,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                "Copyright policy ",
-                                                style: Theme.of(context).textTheme.displaySmall,
-                                              ),
-                                              const Icon(
-                                                Icons.copyright,
-                                                size: 18,
-                                                color: Colors.blueGrey,
-                                              ),
-                                              Text(
-                                                " December 25, 2023",
-                                                style: Theme.of(context).textTheme.displaySmall,
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               homeController.loading.value ? Positioned(

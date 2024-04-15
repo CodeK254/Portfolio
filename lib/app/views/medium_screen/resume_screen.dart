@@ -34,6 +34,7 @@ class ResumeMediumScreen extends StatelessWidget {
                         flex: 2,
                         child: Obx(
                           () => Stepper(
+                            physics: const ClampingScrollPhysics(),
                             controlsBuilder: (context, details) {
                               return Container();
                             },
