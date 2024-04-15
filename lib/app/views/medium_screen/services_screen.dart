@@ -22,7 +22,7 @@ class ServicesMediumScreen extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                   const CustomLabel(label: "Services Offered"),
                   const CustomSpacing(height: .1),
