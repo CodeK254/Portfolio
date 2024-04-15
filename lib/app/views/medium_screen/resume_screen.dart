@@ -187,7 +187,7 @@ class ResumeMediumScreen extends StatelessWidget {
                                     animation: true,
                                     backgroundColor: Colors.white,
                                     fillColor: Colors.blueGrey.shade300,
-                                    progressColor: Colors.green.shade700,
+                                    progressColor: resumeController.learning[index]["color"],
                                   ),
                                 ],
                               ),
@@ -195,9 +195,9 @@ class ResumeMediumScreen extends StatelessWidget {
                           )
                           .animate(
                             effects: [
-                              SlideEffect(
-                                begin: const Offset(-10, 0),
-                                end: const Offset(0, 0),
+                              FadeEffect(
+                                begin: 0,
+                                end: 1,
                                 duration: const Duration(milliseconds: 500),
                                 delay: Duration(milliseconds: 500 * index),
                               ),
@@ -206,6 +206,31 @@ class ResumeMediumScreen extends StatelessWidget {
                         );
                       }
                     ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ResponsiveWidgetScreen.isLargeScreen(context) ? const CustomSpacing(height: .1) : const CustomSpacing(height: .2),
+                      const Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Copyright policy ",
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                          const Icon(
+                            Icons.copyright,
+                            size: 18,
+                            color: Colors.blueGrey,
+                          ),
+                          Text(
+                            " December 25, 2023",
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),

@@ -201,6 +201,31 @@ class ResumeSmallScreen extends StatelessWidget {
                       }
                     )
                   ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const CustomSpacing(height: .1),
+                      const Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Copyright policy ",
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                          const Icon(
+                            Icons.copyright,
+                            size: 18,
+                            color: Colors.blueGrey,
+                          ),
+                          Text(
+                            " December 25, 2023",
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

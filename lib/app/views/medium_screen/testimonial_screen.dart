@@ -31,7 +31,33 @@ class TestimonialMediumScreen extends StatelessWidget {
                       image: testimonialController.testimonials[index]["image"],
                       selected: testimonialController.testimonials[index]["selected"],
                     )
-                  )
+                  ),
+
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ResponsiveWidgetScreen.isLargeScreen(context) ? const CustomSpacing(height: .1) : const CustomSpacing(height: .2),
+                      const Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Copyright policy ",
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                          const Icon(
+                            Icons.copyright,
+                            size: 18,
+                            color: Colors.blueGrey,
+                          ),
+                          Text(
+                            " December 25, 2023",
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
