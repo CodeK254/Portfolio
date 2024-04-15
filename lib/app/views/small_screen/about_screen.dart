@@ -24,9 +24,7 @@ class AboutSmallScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: ListView(
                 children: [
                   Row(
                     children: [
@@ -64,162 +62,154 @@ class AboutSmallScreen extends StatelessWidget {
                         ],
                       ),
                       const CustomSpacing(width: .03),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Titus Kariuki",
-                              style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Titus Kariuki",
+                            style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                              fontWeight: FontWeight.bold,
                             ),
-                            const SizedBox(height: 8),
-                            AnimatedTextKit(
+                          ),
+                          const SizedBox(height: 8),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * .58,
+                            child: AnimatedTextKit(
                               totalRepeatCount: 1,
                               animatedTexts: [
                                 TypewriterAnimatedText(
                                   "Student at Karatina University- Nyeri, Kenya. Proficient in Dart language, Flutter Framework, PHP and LARAVEL, beginner in Arduino Programming.",
-                                  textStyle: Theme.of(context).textTheme.displaySmall,
+                                  textStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
+                                    fontSize: 12,
+                                  ),
                                   speed: const Duration(milliseconds: 50),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * .035),
+                        child: Text(
+                          "🚀 Experienced Flutter Developer Ready to Bring Your Ideas to Life! 🚀",
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            fontSize: 25,
+                          ),
+                        ),
+                      ),
+                      ...List.generate(
+                        about.length, 
+                        (index) => Padding(
+                          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * .035),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                about[index]["label"],
+                                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                  fontSize: 18,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                about[index]["data"],
+                                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ).animate(
+                          effects: [
+                            FadeEffect(
+                              begin: 0,
+                              end: 1,
+                              duration: const Duration(seconds: 1),
+                              delay: Duration(seconds: index * 1),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * .025,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ...List.generate(
+                                  homeController.socialIcons.length, (index) => Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 12,
+                                    ),
+                                    child: GestureDetector(
+                                      onTap: (){
+                                        openUrl(homeController.socialIcons[index]["url"]);
+                                      },  
+                                      child: Column(
+                                        children: [
+                                          Icon(
+                                            homeController.socialIcons[index]["icon"],
+                                            size: 22,
+                                            color: homeController.socialIcons[index]["color"],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ).animate(
+                                    effects: [
+                                      FadeEffect(
+                                        begin: 0,
+                                        end: 1,
+                                        delay: Duration(milliseconds: 2000 + (index * 500)),
+                                        duration: const Duration(milliseconds: 500),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      ),
+                      const Divider(
+                        thickness: .3,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * .035),
-                            child: Text(
-                              "🚀 Experienced Flutter Developer Ready to Bring Your Ideas to Life! 🚀",
-                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                fontSize: 25,
-                              ),
-                            ),
+                          Text(
+                            "Copyright policy ",
+                            style: Theme.of(context).textTheme.displaySmall,
                           ),
-                          ...List.generate(
-                            about.length, 
-                            (index) => Padding(
-                              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * .035),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    about[index]["label"],
-                                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    about[index]["data"],
-                                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ).animate(
-                              effects: [
-                                FadeEffect(
-                                  begin: 0,
-                                  end: 1,
-                                  duration: const Duration(seconds: 1),
-                                  delay: Duration(seconds: index * 1),
-                                ),
-                              ],
-                            ),
+                          const Icon(
+                            Icons.copyright,
+                            size: 18,
+                            color: Colors.blueGrey,
                           ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * .025,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    ...List.generate(
-                                      homeController.socialIcons.length, (index) => Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 12,
-                                          vertical: 8,
-                                        ),
-                                        child: GestureDetector(
-                                          onTap: (){
-                                            openUrl(homeController.socialIcons[index]["url"]);
-                                          },  
-                                          child: Column(
-                                            children: [
-                                              Icon(
-                                                homeController.socialIcons[index]["icon"],
-                                                size: 22,
-                                                color: homeController.socialIcons[index]["color"],
-                                              ),
-                                              const SizedBox(height: 3),
-                                              Text(
-                                                homeController.socialIcons[index]["label"],
-                                                style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                                                  fontSize: 10,
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ).animate(
-                                        effects: [
-                                          FadeEffect(
-                                            begin: 0,
-                                            end: 1,
-                                            delay: Duration(milliseconds: 2000 + (index * 500)),
-                                            duration: const Duration(milliseconds: 500),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Divider(
-                            thickness: .3,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Copyright policy ",
-                                style: Theme.of(context).textTheme.displaySmall,
-                              ),
-                              const Icon(
-                                Icons.copyright,
-                                size: 18,
-                                color: Colors.blueGrey,
-                              ),
-                              Text(
-                                " December 25, 2023",
-                                style: Theme.of(context).textTheme.displaySmall,
-                              ),
-                            ],
+                          Text(
+                            " December 25, 2023",
+                            style: Theme.of(context).textTheme.displaySmall,
                           ),
                         ],
                       ),
-                    ),
+                    ],
                   ),
                 ],
               ),
