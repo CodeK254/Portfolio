@@ -22,10 +22,10 @@ class ServicesSmallScreen extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                  const CustomLabel(label: "Services Offered"),
-                  const CustomSpacing(height: .1),
+                    CustomLabel(label: "Services Offered", fontSize: MediaQuery.of(context).size.width < 580 ? 25 : null),
+                    const CustomSpacing(height: .1),
                     Obx(
                       () => Container(
                         decoration: BoxDecoration(
@@ -92,7 +92,12 @@ class ServicesSmallScreen extends StatelessWidget {
                     return InkWell(
                       hoverColor: Colors.green,
                       onTap: (){
-
+                        if(servicesController.tileColor[index].value == Colors.green){
+                          servicesController.resetColors();
+                          servicesController.tileColor[index].value = Colors.green;
+                        } else {
+                          servicesController.resetColors();
+                        }
                       },
                       onHover: (value) {
                         if(value){

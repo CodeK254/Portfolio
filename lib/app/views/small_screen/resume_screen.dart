@@ -140,7 +140,7 @@ class ResumeSmallScreen extends StatelessWidget {
                     child: ListView.builder(
                       shrinkWrap: true,
                       physics: const ClampingScrollPhysics(),
-                      itemCount: resumeController.resumeInfo.length,
+                      itemCount: resumeController.learning.length,
                       itemBuilder: (context, index){
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 8.0),
