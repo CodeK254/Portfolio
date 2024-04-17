@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/views/home/testimonial_controller.dart';
@@ -36,7 +34,7 @@ class TestimonialMediumScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      ResponsiveWidgetScreen.isLargeScreen(context) ? const CustomSpacing(height: .1) : const CustomSpacing(height: .2),
+                      ResponsiveWidgetScreen.isLargeScreen(context) ? const CustomSpacing(height: .1) : ResponsiveWidgetScreen.isSmallScreen(context) ? const CustomSpacing(height: .08) : const CustomSpacing(height: .2),
                       const Divider(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -286,32 +284,6 @@ class CustomTestimonialColumn extends StatelessWidget {
           ) : Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 2,
-                    color: Colors.white60,
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ...List.generate(
-                        data.length,
-                        (index) => CustomTestimonialDisplay(
-                          label: data[index]["label"],
-                          value: data[index]["value"],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              const CustomSpacing(height: .05),
               Column(
                 children: [
                   AspectRatio(
@@ -370,6 +342,41 @@ class CustomTestimonialColumn extends StatelessWidget {
                   )
                 ],
               ),
+              const CustomSpacing(height: .02),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    width: 2,
+                    color: Colors.white60,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ...List.generate(
+                        data.length,
+                        (index) => CustomTestimonialDisplay(
+                          label: data[index]["label"],
+                          value: data[index]["value"],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * .1,
+                ),
+                child: Divider(
+                  thickness: .3,
+                  color: Colors.grey.shade300,
+                ),
+              )
             ],
           ),
         ],
