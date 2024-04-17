@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/views/contact/contact_controller.dart';
 import 'package:portfolio/app/views/large_screen/map_side.dart';
@@ -11,7 +10,6 @@ import 'package:portfolio/utils/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,

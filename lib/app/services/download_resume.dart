@@ -23,6 +23,7 @@ void downloadResume() async {
     //   "Success!!!", 
     //   "File saved to: ${toSaved.path}"
     // );
+    await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
 
     await FlutterDownloader.enqueue(
       url: '/home/flutter_all_projects/portfolio/assets/resume/resume.pdf',
