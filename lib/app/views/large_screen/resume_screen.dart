@@ -1,8 +1,11 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:flutter/widgets.dart";
 import "package:flutter_animate/flutter_animate.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:get/get.dart";
 import "package:percent_indicator/percent_indicator.dart";
+import "package:portfolio/app/services/download_resume.dart";
 import "package:portfolio/app/views/home/resume_controller.dart";
 import "package:portfolio/app/widgets/spacing.dart";
 import "package:portfolio/app/widgets/text.dart";
@@ -24,7 +27,53 @@ class ResumeLargeScreen extends StatelessWidget {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  const CustomLabel(label: "My Resume"),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const CustomLabel(label: "My Resume"),
+                      GestureDetector(
+                        onTap: (){
+                          downloadResume();
+                        },
+                        child: Tooltip(
+                          message: "Download My Resume",
+                          padding: const EdgeInsets.all(8),
+                          textStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
+                          decoration: const BoxDecoration(color: Colors.black54),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.12,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1.5,
+                                color: Colors.redAccent,
+                              ),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                CustomText(
+                                  text: "Resume", 
+                                  fontSize: 18, 
+                                  textColor: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                SizedBox(width: 10),
+                                Icon(
+                                  FontAwesomeIcons.download,
+                                  color: Colors.white,
+                                  size: 20,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   const CustomSpacing(height: .1),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
