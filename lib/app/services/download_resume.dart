@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 void downloadDocument() async {
     try{
-      final AnchorElement anchorElement = AnchorElement(href: "https://github.com/CodeK254/Portfolio/blob/main/assets/resume/Titus_Kariuki_Resume.jpg");
+      final AnchorElement anchorElement = AnchorElement(href: "/assets/resume/Titus_Kariuki_Resume.jpg");
       anchorElement.download = "Titus Kariuki Resume.png";
       anchorElement.click();
     } catch(e){
