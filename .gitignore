@@ -30,7 +30,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/assets/resume
+# /assets/resume
 
 # Symbolication related
 app.*.symbols
