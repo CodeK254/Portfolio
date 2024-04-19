@@ -8,3 +8,7 @@
 <img src="/assets/images/home_page.png">
 
 ## Services Page
+
+<samp>This page is about services I offer in the technological realm, from database management, design and cross-platform development as well as backend services</samp>
+
+<img src="/assets/images/services_page.png">
