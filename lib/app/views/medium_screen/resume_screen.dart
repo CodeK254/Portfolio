@@ -32,7 +32,7 @@ class ResumeMediumScreen extends StatelessWidget {
                       const CustomLabel(label: "My Resume"),
                       GestureDetector(
                         onTap: (){
-                          downloadResume();
+                          downloadDocument();
                         },
                         child: Tooltip(
                           message: "Download My Resume",

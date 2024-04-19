@@ -7,9 +7,11 @@ import 'package:portfolio/app/views/home/home_controller.dart';
 import 'package:portfolio/app/views/loading/loading.dart';
 import 'package:portfolio/app/views/loading/loading_controller.dart';
 import 'package:portfolio/utils/theme.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,

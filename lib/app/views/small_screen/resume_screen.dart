@@ -31,7 +31,7 @@ class ResumeSmallScreen extends StatelessWidget {
                       const CustomLabel(label: "My Resume"),
                       GestureDetector(
                         onTap: (){
-                          downloadResume();
+                          downloadDocument();
                         },
                         child: Tooltip(
                           message: "Download My Resume",
@@ -68,7 +68,7 @@ class ResumeSmallScreen extends StatelessWidget {
                             ),
                           ) : GestureDetector(
                             onTap: (){
-                              downloadResume();
+                              downloadDocument();
                             },
                             child: const Icon(
                               FontAwesomeIcons.download,
