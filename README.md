@@ -18,3 +18,15 @@
 <samp>This resume page is my E-resume, having all my records from educational background, work experience and and my proficiency in Programming languages and Frameworks.</samp>
 
 <img src="/assets/images/resume_page.png">
+
+## Testimonial Page
+
+<samp>This page is about my past work, events I participated in, their details, how we faired in the competiton, how the experience was.</samp>
+
+<img src="/assets/images/testimonial_page.png">
+
+## Contact Page
+
+<samp>This page has all my contact details where you can directly contact me.</samp>
+
+<img src="/assets/images/contacts_page.png">
