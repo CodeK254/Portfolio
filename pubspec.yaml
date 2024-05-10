@@ -53,6 +53,7 @@ dependencies:
   path_provider: ^2.1.3
   flutter_downloader: ^1.11.7
   filesystem_picker: ^4.1.0
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

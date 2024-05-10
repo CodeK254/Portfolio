@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ThemeData lightTheme = ThemeData(
   colorScheme: const ColorScheme.highContrastLight(),
@@ -45,19 +46,19 @@ ThemeData darkTheme = ThemeData(
       color: Colors.white,
     ),
   ),
-  textTheme: TextTheme(
-    titleSmall: const TextStyle(
-      fontSize: 20,
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-    ),
-    displayMedium: TextStyle(
-      fontSize: 16,
-      color: Colors.grey.shade100,
-    ),
-    displaySmall: TextStyle(
-      fontSize: 12,
-      color: Colors.grey.shade400,
-    ),
+  textTheme: GoogleFonts.ubuntuTextTheme(
+    // titleSmall: const TextStyle(
+    //   fontSize: 20,
+    //   color: Colors.white,
+    //   fontWeight: FontWeight.bold,
+    // ),
+    // displayMedium: TextStyle(
+    //   fontSize: 16,
+    //   color: Colors.grey.shade100,
+    // ),
+    // displaySmall: TextStyle(
+    //   fontSize: 12,
+    //   color: Colors.grey.shade400,
+    // ),
   ),
 );
