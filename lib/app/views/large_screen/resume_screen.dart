@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_animate/flutter_animate.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:get/get.dart";
+import "package:google_fonts/google_fonts.dart";
 import "package:percent_indicator/percent_indicator.dart";
 import "package:portfolio/app/services/download_resume.dart";
 import "package:portfolio/app/views/home/resume_controller.dart";
@@ -37,7 +38,7 @@ class ResumeLargeScreen extends StatelessWidget {
                         child: Tooltip(
                           message: "Download My Resume",
                           padding: const EdgeInsets.all(8),
-                          textStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
+                          textStyle: GoogleFonts.ubuntu(color: Colors.white, fontWeight: FontWeight.normal),
                           decoration: const BoxDecoration(color: Colors.black54),
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.12,

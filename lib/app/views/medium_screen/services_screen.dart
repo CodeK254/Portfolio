@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/app/views/home/services_controller.dart';
 import 'package:portfolio/app/widgets/spacing.dart';
 import 'package:portfolio/app/widgets/text_style.dart';
@@ -57,7 +58,7 @@ class ServicesMediumScreen extends StatelessWidget {
                               const SizedBox(width: 12),
                               Text(
                                 servicesController.time.toString(),
-                                style: TextStyle(
+                                style: GoogleFonts.ubuntu(
                                   fontSize: 16,
                                   color: Colors.grey.shade300,
                                 ),
@@ -121,7 +122,7 @@ class ServicesMediumScreen extends StatelessWidget {
                                       const CustomSpacing(height: .02),
                                       Text(
                                         servicesController.services[index]["label"],
-                                        style: TextStyle(
+                                        style: GoogleFonts.ubuntu(
                                           fontSize: 25,
                                           color: Colors.grey.shade100,
                                           fontWeight: FontWeight.bold,
@@ -142,11 +143,11 @@ class ServicesMediumScreen extends StatelessWidget {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         servicesController.services[index]["description"],
-                                        style: TextStyle(
+                                        style: GoogleFonts.ubuntu(
                                           fontSize: 14,
                                           color: Colors.grey.shade400,
                                           fontWeight: FontWeight.normal,
-                                          overflow: TextOverflow.ellipsis
+                                          // overflow: TextOverflow.ellipsis
                                         ),
                                         maxLines: 20,
                                       ),

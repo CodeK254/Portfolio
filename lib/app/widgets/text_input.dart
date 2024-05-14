@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextInput extends StatelessWidget {
   final TextEditingController controller;
@@ -41,7 +42,7 @@ class CustomTextInput extends StatelessWidget {
         autofillHints: autofillHints ?? [],
         maxLength: maxLength,
         textCapitalization: textCapitalization ?? TextCapitalization.none,
-        style: const TextStyle(
+        style: GoogleFonts.ubuntu(
           fontSize: 15,
           color: Colors.black,
         ),
