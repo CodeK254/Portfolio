@@ -267,7 +267,8 @@ class HomeScreen extends StatelessWidget {
             message: "Return to top",
             child: FloatingActionButton(
               onPressed: (){
-                scrollController.animateTo(0, duration: const Duration(seconds: 3), curve: Curves.easeInCirc);
+                scrollController.animateTo(0, duration: Duration(milliseconds: 3000 + homeController.position.value.toInt()), curve: Curves.easeInCirc);
+                homeController.selected.value = 0;
               },
               mini: true,
               backgroundColor: KColors.blue,
