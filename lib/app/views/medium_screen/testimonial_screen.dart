@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import 'package:portfolio/app/views/home/testimonial_controller.dart';
 import 'package:portfolio/app/widgets/spacing.dart';
 import 'package:portfolio/app/widgets/text.dart';
+import 'package:portfolio/app/widgets/title.dart';
 import 'package:portfolio/responsive/responsive.dart';
+import 'package:portfolio/utils/colors.dart';
 
 class TestimonialMediumScreen extends StatelessWidget {
   TestimonialMediumScreen({super.key});
@@ -13,54 +15,24 @@ class TestimonialMediumScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: CustomScrollView(
-          slivers: [
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  ...List.generate(
-                    testimonialController.testimonials.length, 
-                    (index) => CustomTestimonialColumn(
-                      title: testimonialController.testimonials[index]["title"],
-                      data: testimonialController.testimonials[index]["data"],
-                      image: testimonialController.testimonials[index]["image"],
-                      selected: testimonialController.testimonials[index]["selected"],
-                    )
-                  ),
-
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ResponsiveWidgetScreen.isLargeScreen(context) ? const CustomSpacing(height: .1) : ResponsiveWidgetScreen.isSmallScreen(context) ? const CustomSpacing(height: .08) : const CustomSpacing(height: .2),
-                      const Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Copyright policy ",
-                            style: Theme.of(context).textTheme.displaySmall,
-                          ),
-                          const Icon(
-                            Icons.copyright,
-                            size: 18,
-                            color: Colors.blueGrey,
-                          ),
-                          Text(
-                            " December 25, 2023",
-                            style: Theme.of(context).textTheme.displaySmall,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CustomLabel(label: "Testimonials"),
+          const CustomSpacing(height: .06),
+          ...List.generate(
+            testimonialController.testimonials.length, 
+            (index) => CustomTestimonialColumn(
+              title: testimonialController.testimonials[index]["title"],
+              data: testimonialController.testimonials[index]["data"],
+              image: testimonialController.testimonials[index]["image"],
+              selected: testimonialController.testimonials[index]["selected"],
+            )
+          ),
+        ],
       ),
     );
   }
@@ -88,7 +60,7 @@ class CustomTestimonialColumn extends StatelessWidget {
           CustomText(
             text: title, 
             fontSize: 20, 
-            textColor: Colors.white,
+            textColor: KColors.lightDarkTextColor,
             fontWeight: FontWeight.bold,
           ),
           const Divider(endIndent: 20),
@@ -103,7 +75,7 @@ class CustomTestimonialColumn extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       width: 2,
-                      color: Colors.white60,
+                      color: KColors.lightTextColor
                     ),
                   ),
                   child: Padding(
@@ -403,7 +375,7 @@ class CustomTestimonialDisplay extends StatelessWidget {
           CustomText(
             text: label, 
             fontSize: 16, 
-            textColor: Colors.white,
+            textColor: KColors.darkTextColor,
             fontWeight: FontWeight.bold,
           ),
           const CustomSpacing(width: .012),
@@ -415,7 +387,7 @@ class CustomTestimonialDisplay extends StatelessWidget {
             child: CustomText(
               text: value,
               fontSize: 16,
-              textColor: Colors.white,
+              textColor: KColors.lightDarkTextColor
             ),
           ),
         ],

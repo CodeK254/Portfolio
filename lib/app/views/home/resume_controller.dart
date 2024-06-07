@@ -5,6 +5,17 @@ class ResumeController extends GetxController{
   RxInt leftStepperSelected = 0.obs;
   RxInt righttepperSelected = 0.obs;
 
+  List<String> techStack = [
+    "Cross-platform development",
+    "Database Administration",
+    "IT Support",
+    "IT tutoring and training",
+    "IoT and Embedded Systems",
+    "Backend Development",
+    "API Development and Integration",
+    "Database Design and Development"
+  ];
+
   List<Map<String, dynamic>> resumeInfo = [
     {
       "title": "Summary",

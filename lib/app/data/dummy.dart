@@ -1,11 +1,15 @@
 
+import 'package:flutter/material.dart';
+
 List<Map<String, dynamic>> about = [                  
   {
-    "label": "🌟 About Me", 
+    "label": "🌟 About Me",
+    "color": Colors.red,
     "data" : "🔥 Are you searching for a dedicated and skilled Flutter developer to turn your mobile app dreams into reality? Look no further! I'm here to help you create exceptional cross-platform applications that stand out in the market."
   },
   {
     "label": "🛠️ My Skills & Strengths",
+    "color": Colors.green.shade900,
     "data": """📱 Flutter Expertise: With over 2 years of hands-on experience, I am well-versed in Flutter's widget-based framework, enabling me to craft visually stunning, highly performant, and responsive mobile apps for both iOS and Android.
 
   🔗 Integration Maven: I specialize in seamlessly integrating APIs, third-party libraries, and backend services, ensuring your app's data flow is efficient and secure.",
@@ -16,11 +20,13 @@ List<Map<String, dynamic>> about = [
   },
   {
     "label": "🎓 My Education",
+    "color": Colors.blueGrey.shade800,
     "data": """🎓 Bachelor's in Computer Science from Karatina University
   🎓 Ongoing learning and certifications to stay updated with the latest Flutter trends and best practices.""",
   },
   {
     "label": "🌟 Why Choose Me",
+    "color": Colors.green.shade600,
     "data": """✅ Proven Track Record: My portfolio showcases my ability to deliver high-quality Flutter applications that align with client objectives.
 
   ✅ Client-Centric Approach: I believe in clear communication, meeting deadlines, and providing post-launch support to ensure your project's success.

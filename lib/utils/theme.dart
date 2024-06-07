@@ -33,12 +33,12 @@ import 'package:google_fonts/google_fonts.dart';
 // );
 
 ThemeData darkTheme = ThemeData(
-  colorScheme: const ColorScheme.highContrastDark(),
+  // colorScheme: const ColorScheme.highContrastDark(),
   primaryColor: Colors.grey.shade800,
   appBarTheme: const AppBarTheme(
     toolbarHeight: 65,
     elevation: 0.4,
-    backgroundColor: Colors.black,
+    backgroundColor: Colors.transparent,
     shadowColor: Colors.grey,
     titleTextStyle: TextStyle(
       fontSize: 22,

@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController{
+  RxDouble position = 0.0.obs;
   List<Map<String, dynamic>> socialIcons = [
     {"icon": FontAwesomeIcons.facebook, "label": "Facebook", "url": "https://www.facebook.com/titomc.junky", "color": Colors.blue},
     {"icon": FontAwesomeIcons.whatsapp, "label": "WhatsApp", "url": "https://wa.me/+254742143102", "color": Colors.green},
@@ -17,11 +18,11 @@ class HomeController extends GetxController{
   RxBool animate = true.obs;
 
   List<Map<String, dynamic>> navigation = [
-    {"label": "About", "url": "/about"},
-    {"label": "Services", "url": "/services"},
-    {"label": "Resume", "url": "/resume"},
-    {"label": "Testimonial", "url": "/testimonial"},
-    {"label": "Contact", "url": "/contact"},
+    {"label": "About", "url": 0},
+    {"label": "Services", "url": 710},
+    {"label": "Resume", "url": 1760},
+    {"label": "Testimonial", "url": 3170},
+    {"label": "Contact", "url": 4390},
   ];
 
   RxInt selected = 0.obs;

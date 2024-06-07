@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:portfolio/app/widgets/spacing.dart";
 import "package:portfolio/app/widgets/text.dart";
+import "package:portfolio/utils/colors.dart";
 
 class CustomLabel extends StatelessWidget {
   final String label;
@@ -16,7 +17,7 @@ class CustomLabel extends StatelessWidget {
         CustomText(
           text: label, 
           fontSize: MediaQuery.of(context).size.width < 580 ? 25 : 30, 
-          textColor: Colors.white,
+          textColor: KColors.darkTextColor,
           fontWeight: FontWeight.bold,
         ),
         const CustomSpacing(height: .01),

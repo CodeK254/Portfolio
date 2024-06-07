@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/utils/colors.dart';
 
 class ServicesController extends GetxController with GetTickerProviderStateMixin{
   Animation? flipAnimation;
@@ -12,12 +13,12 @@ class ServicesController extends GetxController with GetTickerProviderStateMixin
   RxString date = "".obs;
 
   List<Rx<Color>> tileColor = [
-    Colors.grey.shade900.obs,
-    Colors.grey.shade900.obs,
-    Colors.grey.shade900.obs,
-    Colors.grey.shade900.obs,
-    Colors.grey.shade900.obs,
-    Colors.grey.shade900.obs,
+    KColors.backGroundGrey.obs,
+    KColors.backGroundGrey.obs,
+    KColors.backGroundGrey.obs,
+    KColors.backGroundGrey.obs,
+    KColors.backGroundGrey.obs,
+    KColors.backGroundGrey.obs,
   ];
 
   void initiate() async {
@@ -40,7 +41,7 @@ class ServicesController extends GetxController with GetTickerProviderStateMixin
 
   void resetColors() {
     for(int i = 0; i < 6; i++){
-      tileColor[i].value = Colors.grey.shade900;
+      tileColor[i].value = KColors.backGroundGrey;
     }
   }
 
