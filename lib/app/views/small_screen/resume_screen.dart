@@ -4,7 +4,6 @@ import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:get/get.dart";
 import "package:google_fonts/google_fonts.dart";
 import "package:percent_indicator/percent_indicator.dart";
-import "package:portfolio/app/services/download_resume.dart";
 import "package:portfolio/app/views/home/resume_controller.dart";
 import "package:portfolio/app/widgets/spacing.dart";
 import "package:portfolio/app/widgets/text.dart";
@@ -25,62 +24,7 @@ class ResumeSmallScreen extends StatelessWidget {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: MediaQuery.of(context).size.width > 500 ? CrossAxisAlignment.start : CrossAxisAlignment.center,
-                    children: [
-                      const CustomLabel(label: "My Resume"),
-                      GestureDetector(
-                        onTap: (){
-                          downloadDocument();
-                        },
-                        child: Tooltip(
-                          message: "Download My Resume",
-                          padding: const EdgeInsets.all(8),
-                          textStyle: GoogleFonts.ubuntu(color: Colors.white, fontWeight: FontWeight.normal),
-                          decoration: const BoxDecoration(color: Colors.black54),
-                          child: MediaQuery.of(context).size.width > 500 ? Container(
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: 35,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                width: 1.5,
-                                color: Colors.redAccent,
-                              ),
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CustomText(
-                                  text: "Resume", 
-                                  fontSize: 15, 
-                                  textColor: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                SizedBox(width: 8),
-                                Icon(
-                                  FontAwesomeIcons.download,
-                                  color: Colors.white,
-                                  size: 16,
-                                )
-                              ],
-                            ),
-                          ) : GestureDetector(
-                            onTap: (){
-                              downloadDocument();
-                            },
-                            child: const Icon(
-                              FontAwesomeIcons.download,
-                              color: Colors.redAccent,
-                              size: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  const CustomLabel(label: "My Resume"),
                   const CustomSpacing(height: .1),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

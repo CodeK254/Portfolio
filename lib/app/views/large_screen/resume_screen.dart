@@ -7,6 +7,7 @@ import "package:portfolio/app/views/home/resume_controller.dart";
 import "package:portfolio/app/widgets/spacing.dart";
 import "package:portfolio/app/widgets/text.dart";
 import "package:portfolio/app/widgets/title.dart";
+import "package:portfolio/responsive/responsive.dart";
 import "package:portfolio/utils/colors.dart";
 
 class ResumeLargeScreen extends StatelessWidget {
@@ -89,12 +90,15 @@ class ResumeLargeScreen extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                                 const SizedBox(width: 10),
-                                CustomText(
-                                  text: "${resumeController.workExperience[index]["subtitle"]}",
-                                  fontSize: 18, 
-                                  textColor: KColors.lightDarkTextColor,
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold,
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width * .4,
+                                  child: CustomText(
+                                    text: "${resumeController.workExperience[index]["subtitle"]}",
+                                    fontSize: 18, 
+                                    textColor: KColors.lightDarkTextColor,
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ],
                             ),
@@ -131,7 +135,7 @@ class ResumeLargeScreen extends StatelessWidget {
           const CustomSpacing(height: .075),
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * .015,
+              horizontal: MediaQuery.of(context).size.width * .02,
               vertical: 12,
             ),
             child: Row(
@@ -143,7 +147,7 @@ class ResumeLargeScreen extends StatelessWidget {
                   progressColor: KColors.amber,
                   arcBackgroundColor: KColors.backGroundGrey,
                   arcType: ArcType.FULL_REVERSED,
-                  radius: MediaQuery.of(context).size.width * .2,
+                  radius:  MediaQuery.of(context).size.width * (!ResponsiveWidgetScreen.isMediumScreen(context) ? .2 : .22),
                   center: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +171,7 @@ class ResumeLargeScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 8.0),
                           child: CustomText(
                             text: resumeController.techStack[index], 
-                            fontSize: 16, 
+                            fontSize: !ResponsiveWidgetScreen.isMediumScreen(context) ? 16 : 14, 
                             textColor: KColors.darkTextColor,
                             fontWeight: FontWeight.normal,
                           ),
@@ -176,7 +180,7 @@ class ResumeLargeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const CustomSpacing(width: .1),
+                const CustomSpacing(width: .12),
                 Expanded(
                   child: ListView.builder(
                     shrinkWrap: true,
@@ -186,7 +190,7 @@ class ResumeLargeScreen extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: Container(
-                          height: MediaQuery.of(context).size.height * .12,
+                          height: MediaQuery.of(context).size.height * .13,
                           decoration: BoxDecoration(
                             color: KColors.backGroundGrey,
                           ),
@@ -207,7 +211,7 @@ class ResumeLargeScreen extends StatelessWidget {
                                       textColor: Colors.blueGrey.shade400,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                    const CustomSpacing(width: .03),
+                                    const CustomSpacing(width: .02),
                                     CustomText(
                                       text: "${resumeController.learning[index]["percentage"]}%", 
                                       fontSize: 16, 
