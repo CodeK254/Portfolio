@@ -58,16 +58,25 @@ class AboutSmallScreen extends StatelessWidget {
             ),
           ),
           const CustomSpacing(height: .06),
-          Text(
-            "Titus Kariuki",
-            style: Theme.of(context).textTheme.displayMedium!.copyWith(
-              fontWeight: FontWeight.bold,
-              color: KColors.darkTextColor,
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12.0,
+              vertical: 6
+            ),
+            child: Text(
+              "Titus Kariuki",
+              style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                fontWeight: FontWeight.bold,
+                color: KColors.darkTextColor,
+              ),
             ),
           ),
           const SizedBox(height: 8),
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12.0,
+              vertical: 6
+            ),
             child: SizedBox(
               width: MediaQuery.of(context).size.width * .58,
               child: AnimatedTextKit(
