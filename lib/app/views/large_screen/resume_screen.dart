@@ -22,7 +22,10 @@ class ResumeLargeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomLabel(label: "My Resume"),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CustomLabel(label: "My Resume"),
+          ),
           const CustomSpacing(height: .1),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -131,7 +134,10 @@ class ResumeLargeScreen extends StatelessWidget {
             ],
           ),
           const CustomSpacing(height: .1),
-          const CustomLabel(label: "Proficiency"),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CustomLabel(label: "Proficiency"),
+          ),
           const CustomSpacing(height: .075),
           Padding(
             padding: EdgeInsets.symmetric(
