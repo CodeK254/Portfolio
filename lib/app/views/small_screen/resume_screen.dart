@@ -19,11 +19,11 @@ class ResumeSmallScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: const CustomLabel(label: "My Resume"),
+        const Padding(
+          padding: EdgeInsets.all(12.0),
+          child: CustomLabel(label: "My Resume"),
         ),
-        const CustomSpacing(height: .1),
+        const CustomSpacing(height: .75),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
