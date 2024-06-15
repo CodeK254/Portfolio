@@ -16,7 +16,7 @@ void main() async {
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: darkTheme,
-      initialRoute: "/home",
+      // initialRoute: "/home",
       unknownRoute: GetPage(
         name: "/",
         page: () => FlutterLoadingLogo(),
@@ -25,15 +25,15 @@ void main() async {
         }),
       ),
       getPages: [
+        // GetPage(
+        //   name: "/",
+        //   page: () => FlutterLoadingLogo(),
+        //   binding: BindingsBuilder(() {
+        //     Get.lazyPut<LoadingController>(() => LoadingController());
+        //   }),
+        // ),
         GetPage(
           name: "/",
-          page: () => FlutterLoadingLogo(),
-          binding: BindingsBuilder(() {
-            Get.lazyPut<LoadingController>(() => LoadingController());
-          }),
-        ),
-        GetPage(
-          name: "/home",
           page: () => HomeScreen(),
           binding: BindingsBuilder(() {
             Get.lazyPut<HomeController>(() => HomeController());
