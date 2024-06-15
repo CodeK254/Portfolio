@@ -59,9 +59,9 @@ class AboutSmallScreen extends StatelessWidget {
           ),
           const CustomSpacing(height: .06),
           Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12.0,
-              vertical: 6
+            padding: const EdgeInsets.only(
+              top: 12.0,
+              left: 12.0,
             ),
             child: Text(
               "Titus Kariuki",
@@ -73,9 +73,9 @@ class AboutSmallScreen extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12.0,
-              vertical: 6
+            padding: const EdgeInsets.only(
+              left: 12.0,
+              top: 12
             ),
             child: SizedBox(
               width: MediaQuery.of(context).size.width * .58,
