@@ -137,7 +137,7 @@ class ResumeSmallScreen extends StatelessWidget {
             progressColor: KColors.amber,
             arcBackgroundColor: KColors.backGroundGrey,
             arcType: ArcType.FULL_REVERSED,
-            radius:  MediaQuery.of(context).size.width * .4,
+            radius:  MediaQuery.of(context).size.width * .45,
             center: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
