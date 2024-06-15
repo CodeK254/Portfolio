@@ -18,13 +18,14 @@ class AboutSmallScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.width * 0.75,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.width * 0.55,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.grey.shade100,
@@ -55,38 +56,33 @@ class AboutSmallScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const CustomSpacing(height: .03),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Titus Kariuki",
-                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: KColors.darkTextColor,
+          ),
+          const CustomSpacing(height: .06),
+          Text(
+            "Titus Kariuki",
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
+              fontWeight: FontWeight.bold,
+              color: KColors.darkTextColor,
+            ),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * .58,
+            child: AnimatedTextKit(
+              totalRepeatCount: 1,
+              animatedTexts: [
+                TypewriterAnimatedText(
+                  "Former student at Karatina University- Nyeri, Kenya. Proficient in Dart language, Flutter Framework, PHP and LARAVEL and Arduino Programming.",
+                  textStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: 12,
+                    color: KColors.lightDarkTextColor,
                   ),
-                ),
-                const SizedBox(height: 8),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * .58,
-                  child: AnimatedTextKit(
-                    totalRepeatCount: 1,
-                    animatedTexts: [
-                      TypewriterAnimatedText(
-                        "Student at Karatina University- Nyeri, Kenya. Proficient in Dart language, Flutter Framework, PHP and LARAVEL, beginner in Arduino Programming.",
-                        textStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
-                          fontSize: 12,
-                          color: KColors.lightDarkTextColor,
-                        ),
-                        speed: const Duration(milliseconds: 50),
-                      ),
-                    ],
-                  ),
+                  speed: const Duration(milliseconds: 50),
                 ),
               ],
-            )
-          ],
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }

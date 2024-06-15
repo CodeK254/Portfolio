@@ -320,7 +320,7 @@ class CustomTestimonialColumn extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     width: 2,
-                    color: Colors.white60,
+                    color: KColors.lightTextColor,
                   ),
                 ),
                 child: Padding(
@@ -416,7 +416,7 @@ class CustomTestimonialDisplay extends StatelessWidget {
           CustomText(
             text: label, 
             fontSize: MediaQuery.of(context).size.width > 580 ? 16 : 14, 
-            textColor: Colors.white,
+            textColor: KColors.darkTextColor,
             fontWeight: FontWeight.bold,
           ),
           const CustomSpacing(width: .012),
@@ -426,7 +426,7 @@ class CustomTestimonialDisplay extends StatelessWidget {
               child: CustomText(
                 text: value,
                 fontSize: MediaQuery.of(context).size.width > 580 ? 16 : 14,
-                textColor: Colors.white,
+                textColor: KColors.lightDarkTextColor,
               ),
             ),
           ),

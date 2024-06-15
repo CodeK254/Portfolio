@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/views/home/home_controller.dart';
+import 'package:portfolio/app/widgets/spacing.dart';
+import 'package:portfolio/responsive/responsive.dart';
 import 'package:portfolio/utils/colors.dart';
 
 class AboutLargeScreen extends StatelessWidget {
@@ -24,7 +26,10 @@ class AboutLargeScreen extends StatelessWidget {
         child: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 8
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -50,7 +55,7 @@ class AboutLargeScreen extends StatelessWidget {
                         child: Padding( 
                           padding: EdgeInsets.symmetric(
                             horizontal: MediaQuery.of(context).size.width * 0.015,
-                            vertical: 6,
+                            // vertical: 6,
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -97,6 +102,7 @@ class AboutLargeScreen extends StatelessWidget {
                 ) : const Effect(),
               ],
             ),
+            const CustomSpacing(height: .05),
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -117,8 +123,8 @@ class AboutLargeScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.6,
-                  height: MediaQuery.of(context).size.height * 0.7,
+                  width: MediaQuery.of(context).size.width * (!ResponsiveWidgetScreen.isMediumScreen(context) ? 0.6 : .5),
+                  height: MediaQuery.of(context).size.height * (!ResponsiveWidgetScreen.isMediumScreen(context) ? 0.7 : .6),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: KColors.backGroundGrey,

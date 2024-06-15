@@ -313,7 +313,6 @@ class HomeScreen extends StatelessWidget {
                   ResumeSmallScreen(),
                   const CustomSpacing(height: .06),
                   TestimonialMediumScreen(),
-                  const CustomSpacing(height: .06),
                   ContactSmallScreen(),
                   Column(
                     mainAxisSize: MainAxisSize.max,
