@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController{
-  RxDouble position = 0.0.obs;
+  RxBool positionUp = false.obs;
   List<Map<String, dynamic>> socialIcons = [
     {"icon": FontAwesomeIcons.facebook, "label": "Facebook", "url": "https://www.facebook.com/titomc.junky", "color": Colors.blue},
     {"icon": FontAwesomeIcons.whatsapp, "label": "WhatsApp", "url": "https://wa.me/+254742143102", "color": Colors.green},

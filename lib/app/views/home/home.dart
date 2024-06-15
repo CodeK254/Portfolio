@@ -26,7 +26,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     scrollController.addListener((){
-      homeController.position.value = scrollController.position.pixels;
+      if(scrollController.position.pixels > 100){
+        homeController.positionUp.value = true;
+      } else {
+        homeController.positionUp.value = false;
+      }
     });
     return Obx(
       () => Scaffold(
@@ -57,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                           homeController.colors[homeController.selected.value] = KColors.blue;
                           scrollController.animateTo(
                             homeController.navigation[index]["url"], 
-                            duration: Duration(milliseconds: ((index * 1000) + homeController.position.value.toInt())),
+                            duration: Duration(milliseconds: ((index * 1000) + scrollController.position.pixels.toInt())),
                             curve: Curves.easeInCirc
                           );
                         },
@@ -439,12 +443,12 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         floatingActionButton: Visibility(
-          visible: homeController.position.value > 500.0,
+          visible: homeController.positionUp.value,
           child: Tooltip(
             message: "Return to top",
             child: FloatingActionButton(
               onPressed: (){
-                scrollController.animateTo(0, duration: Duration(milliseconds: 3000 + homeController.position.value.toInt()), curve: Curves.easeInCirc);
+                scrollController.animateTo(0, duration: Duration(milliseconds: 3000 + scrollController.position.pixels.toInt()), curve: Curves.easeInCirc);
                 homeController.selected.value = 0;
               },
               mini: true,
