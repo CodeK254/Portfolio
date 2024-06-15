@@ -55,6 +55,11 @@ class HomeScreen extends StatelessWidget {
                           homeController.selected.value = index;
                           homeController.setAllBlack();
                           homeController.colors[homeController.selected.value] = KColors.blue;
+                          scrollController.animateTo(
+                            homeController.navigation[index]["url"], 
+                            duration: Duration(milliseconds: ((index * 1000) + homeController.position.value.toInt())),
+                            curve: Curves.easeInCirc
+                          );
                         },
                       ),
                     ),
