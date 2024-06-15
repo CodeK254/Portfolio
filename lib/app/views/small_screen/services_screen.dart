@@ -27,7 +27,10 @@ class ServicesSmallScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomLabel(label: "Services Offered"),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const CustomLabel(label: "Services Offered"),
+                  ),
                   const CustomSpacing(height: .1),
                   Obx(
                     () => Container(

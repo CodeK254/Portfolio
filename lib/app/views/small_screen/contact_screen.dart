@@ -19,7 +19,10 @@ class ContactSmallScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomLabel(label: "Contact Me"),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomLabel(label: "Contact Me"),
+        ),
         const CustomSpacing(height: .1),
         Padding(
           padding: EdgeInsets.symmetric(
@@ -59,12 +62,12 @@ class ContactSmallScreen extends StatelessWidget {
                             blurRadius: 8,
                           ) : BoxShadow(
                             offset: const Offset(-3, -3),
-                            color: KColors.containerLowerShadowColor,
+                            color: KColors.containerUpperShadowColor,
                             blurRadius: 8,
                           ),
                           contactController.hovered.value == index ? BoxShadow(
                             offset: const Offset(3, 3),
-                            color: KColors.containerUpperShadowColor,
+                            color: KColors.containerLowerShadowColor,
                             blurRadius: 6,
                           ): BoxShadow(
                             offset: const Offset(3, 3),
@@ -87,7 +90,7 @@ class ContactSmallScreen extends StatelessWidget {
                               children: [
                                 CircleAvatar(
                                   radius: 20,
-                                  backgroundColor: KColors.darkTextColor,
+                                  backgroundColor: KColors.lightTextColor,
                                   child: Icon(
                                     contactController.contactInfo[index]["icon"],
                                     color: contactController.contactInfo[index]["color"],

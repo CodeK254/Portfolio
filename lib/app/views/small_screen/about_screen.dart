@@ -66,20 +66,23 @@ class AboutSmallScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * .58,
-            child: AnimatedTextKit(
-              totalRepeatCount: 1,
-              animatedTexts: [
-                TypewriterAnimatedText(
-                  "Former student at Karatina University- Nyeri, Kenya. Proficient in Dart language, Flutter Framework, PHP and LARAVEL and Arduino Programming.",
-                  textStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: 12,
-                    color: KColors.lightDarkTextColor,
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * .58,
+              child: AnimatedTextKit(
+                totalRepeatCount: 1,
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                    "Former student at Karatina University- Nyeri, Kenya. Proficient in Dart language, Flutter Framework, PHP and LARAVEL and Arduino Programming.",
+                    textStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 12,
+                      color: KColors.lightDarkTextColor,
+                    ),
+                    speed: const Duration(milliseconds: 50),
                   ),
-                  speed: const Duration(milliseconds: 50),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

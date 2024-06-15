@@ -61,11 +61,14 @@ class ResumeSmallScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomText(
-                    text: "Work Experience", 
-                    fontSize: 25, 
-                    textColor: Colors.green,
-                    fontWeight: FontWeight.bold,
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: CustomText(
+                      text: "Work Experience", 
+                      fontSize: 25, 
+                      textColor: Colors.green,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   ...List.generate(
                     resumeController.workExperience.length, 
@@ -128,7 +131,10 @@ class ResumeSmallScreen extends StatelessWidget {
           ],
         ),
         const CustomSpacing(height: .1),
-        const CustomLabel(label: "Proficiency"),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomLabel(label: "Proficiency"),
+        ),
         const CustomSpacing(height: .075),
         Center(
           child: CircularPercentIndicator(
