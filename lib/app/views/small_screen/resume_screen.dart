@@ -9,6 +9,7 @@ import "package:portfolio/app/widgets/text.dart";
 import "package:portfolio/app/widgets/title.dart";
 import "package:portfolio/utils/colors.dart";
 
+
 class ResumeSmallScreen extends StatelessWidget {
   ResumeSmallScreen({super.key});
 

@@ -1,17 +1,20 @@
-// // ignore_for_file: avoid_web_libraries_in_flutter
+import 'dart:convert';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html';
 
-// import 'dart:html';
-// import 'package:get/get.dart';
-
-// void downloadDocument() async {
-//     try{
-//       final AnchorElement anchorElement = AnchorElement(href: "/assets/resume/Titus_Kariuki_Resume.jpg");
-//       anchorElement.download = "Titus Kariuki Resume.png";
-//       anchorElement.click();
-//     } catch(e){
-//       Get.snackbar(
-//       "Failed!!!", 
-//       "Error saving file. ${e.toString()}",
-//     );
-//   }
-// }
+void download(List<int> bytes) {
+  try{
+    // Encode our file in base64
+    final base64 = base64Encode(bytes);
+    // Create the link with the file
+    final anchor = AnchorElement(href: 'data:application/octet-stream;base64,$base64')..target = 'blank';
+    // add the name
+    anchor.download = "Titus Kariuki.pdf";
+    // trigger download
+    document.body!.append(anchor);
+    anchor.click();
+    anchor.remove();
+  } catch(e){
+    print("Error!!! $e");
+  }
+}
