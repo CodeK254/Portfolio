@@ -9,6 +9,7 @@ import "package:portfolio/app/widgets/text.dart";
 import "package:portfolio/app/widgets/title.dart";
 import "package:portfolio/responsive/responsive.dart";
 import "package:portfolio/utils/colors.dart";
+import 'dart:js' as js;
 
 class ResumeLargeScreen extends StatelessWidget {
   ResumeLargeScreen({super.key});
@@ -22,9 +23,58 @@ class ResumeLargeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CustomLabel(label: "My Resume"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: CustomLabel(label: "My Resume"),
+              ),
+              GestureDetector(
+                onTap: (){
+                  js.context.callMethod('open', ['https://drive.google.com/file/d/1OtGVewKrTZgAUHQ9vqi7DS5ecK6KrWDm/view?usp=sharing']);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: KColors.backGroundGrey,
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: const Offset(-5, -5),
+                        color: KColors.containerUpperShadowColor,
+                        blurRadius: 16,
+                      ),
+                      BoxShadow(
+                        offset: const Offset(5, 5),
+                        color: KColors.containerLowerShadowColor,
+                        blurRadius: 16,
+                      ),
+                    ]
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "My Resume",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.redAccent,
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Icon(
+                          Icons.download,
+                          size: 25,
+                          color: Colors.redAccent,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           const CustomSpacing(height: .1),
           Row(

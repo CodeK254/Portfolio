@@ -8,7 +8,7 @@ import "package:portfolio/app/widgets/spacing.dart";
 import "package:portfolio/app/widgets/text.dart";
 import "package:portfolio/app/widgets/title.dart";
 import "package:portfolio/utils/colors.dart";
-
+import "dart:js" as js;
 
 class ResumeSmallScreen extends StatelessWidget {
   ResumeSmallScreen({super.key});
@@ -20,9 +20,42 @@ class ResumeSmallScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.all(12.0),
-          child: CustomLabel(label: "My Resume"),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const CustomLabel(label: "My Resume"),
+              GestureDetector(
+                onTap: (){
+                  js.context.callMethod('open', ['https://drive.google.com/file/d/1OtGVewKrTZgAUHQ9vqi7DS5ecK6KrWDm/view?usp=sharing']);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: KColors.backGroundGrey,
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: const Offset(-5, -5),
+                        color: KColors.containerUpperShadowColor,
+                        blurRadius: 16,
+                      ),
+                      BoxShadow(
+                        offset: const Offset(5, 5),
+                        color: KColors.containerLowerShadowColor,
+                        blurRadius: 16,
+                      ),
+                    ]
+                  ),
+                  child: const Icon(
+                    Icons.download,
+                    size: 25,
+                    color: Colors.redAccent,
+                  )
+                ),
+              ),
+            ],
+          ),
         ),
         const CustomSpacing(height: .075),
         Column(
