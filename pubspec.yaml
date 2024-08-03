@@ -83,6 +83,9 @@ flutter:
     - assets/images/
     - assets/demo/
     - assets/launcher/
+    - assets/apps/assistant/
+    - assets/apps/notepad/
+    - assets/apps/pick_and_drop/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

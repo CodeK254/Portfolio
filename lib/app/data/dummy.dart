@@ -34,3 +34,36 @@ List<Map<String, dynamic>> about = [
   ✅ Passionate Problem Solver: I enjoy tackling complex challenges and finding innovative solutions to help you achieve your goals.""",
   },
 ];
+
+List<Map<String, dynamic>> soloProjects = [
+  {
+    "title": "Notepad KE",
+    "folder": "notepad",
+    "images": [
+      "authentication",
+      "preferences",
+      "note_list",
+      "dark",
+    ],
+  },
+  {
+    "title": "Pick And Drop",
+    "folder": "pick_and_drop",
+    "images": [
+      "allow_maps",
+      "dashboard",
+      "language",
+      "maps",
+    ],
+  },
+  {
+    "title": "Life Assistant",
+    "folder": "assistant",
+    "images": [
+      "splash",
+      "maps",
+      "ask_ai",
+      "details",
+    ],
+  },
+];

@@ -3,6 +3,7 @@ import "package:flutter_animate/flutter_animate.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:get/get.dart";
 import "package:percent_indicator/percent_indicator.dart";
+import "package:portfolio/app/data/dummy.dart";
 import "package:portfolio/app/views/home/resume_controller.dart";
 import "package:portfolio/app/widgets/spacing.dart";
 import "package:portfolio/app/widgets/text.dart";
@@ -166,6 +167,66 @@ class ResumeSmallScreen extends StatelessWidget {
               ),
             ),
           ],
+        ),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomLabel(label: "Solo-Projects"),
+        ),
+        ...List.generate(
+          soloProjects.length,
+          (index) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const CustomSpacing(height: .075),
+                CustomText(
+                  text: soloProjects[index]["title"].toString(),
+                  fontSize: 22, 
+                  textColor: Colors.blueGrey.shade700,
+                  fontWeight: FontWeight.bold,
+                ),
+                const CustomSpacing(height: .02),
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const ClampingScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: .6
+                  ), 
+                  itemCount: soloProjects[index]["images"].length,
+                  itemBuilder: (context, indexTwo){
+                    return Image(
+                      image: AssetImage("assets/apps/${soloProjects[index]["folder"]}/${soloProjects[index]["images"][indexTwo]}.png"),
+                    );
+                  }
+                ),
+                // SingleChildScrollView(
+                //   scrollDirection: Axis.horizontal,
+                //   child: Row(
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     mainAxisAlignment: MainAxisAlignment.start,
+                //     children: [
+                //       ...List.generate(
+                //         soloProjects[index]["images"].length,
+                //         (indexTwo) => Padding(
+                //           padding: const EdgeInsets.only(right: 8.0),
+                //           child: Image(
+                //             image: AssetImage("assets/apps/${soloProjects[index]["folder"]}/${soloProjects[index]["images"][indexTwo]}.png"),
+                //             width: MediaQuery.of(context).size.width * .3,
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                const CustomSpacing(height: .025),
+              ],
+            ),
+          ),
         ),
         const CustomSpacing(height: .1),
         const Padding(
