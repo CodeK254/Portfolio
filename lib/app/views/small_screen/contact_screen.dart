@@ -10,13 +10,15 @@ import 'package:portfolio/responsive/responsive.dart';
 import 'package:portfolio/utils/colors.dart';
 
 class ContactSmallScreen extends StatelessWidget {
-  ContactSmallScreen({super.key});
+  ContactSmallScreen({super.key, required this.pageKey});
 
   final ContactController contactController = Get.put(ContactController());
+  final GlobalKey pageKey;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      key: pageKey,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(

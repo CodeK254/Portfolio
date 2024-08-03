@@ -4,6 +4,11 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController{
   RxBool positionUp = false.obs;
+  GlobalKey about = GlobalKey();
+  GlobalKey services = GlobalKey();
+  GlobalKey resume = GlobalKey();
+  GlobalKey testimonial = GlobalKey();
+  GlobalKey contact = GlobalKey();
   List<Map<String, dynamic>> socialIcons = [
     {"icon": FontAwesomeIcons.facebook, "label": "Facebook", "url": "https://www.facebook.com/titomc.junky", "color": Colors.blue},
     {"icon": FontAwesomeIcons.whatsapp, "label": "WhatsApp", "url": "https://wa.me/+254742143102", "color": Colors.green},
@@ -12,6 +17,37 @@ class HomeController extends GetxController{
     {"icon": FontAwesomeIcons.x, "label": "X(Twitter)", "url": "https://twitter.com/CodeK254", "color": Colors.black},
     {"icon": FontAwesomeIcons.linkedinIn, "label": "LinkedIn", "url": "https://www.linkedin.com/in/titus-kariuki-b69a79218/", "color": Colors.blue.shade900},
   ];
+
+  void scrollToSection(int section) {
+    switch(section){
+      case 1:
+        navigateToSection(section, about);
+        break;
+
+      case 2:
+        navigateToSection(section, services);
+        break;
+
+      case 3:
+        navigateToSection(section, resume);
+        break;
+
+      case 4:
+        navigateToSection(section, testimonial);
+        break;
+
+      default:
+        navigateToSection(section, contact);
+    } 
+  }
+
+  void navigateToSection(int index, GlobalKey key){
+    Scrollable.ensureVisible(
+      key.currentContext!,
+      duration: Duration(milliseconds: (index * 1000) + 500),
+      curve: Curves.easeInOut,
+    );
+  }
 
   RxBool loading = false.obs;
   RxBool visible = true.obs;

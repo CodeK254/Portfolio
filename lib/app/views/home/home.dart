@@ -34,6 +34,7 @@ class HomeScreen extends StatelessWidget {
     });
     return Obx(
       () => Scaffold(
+        key: homeController.about,
         appBar: ResponsiveWidgetScreen.isSmallScreen(context) ? AppBar(
           title: Text(
             "Full-Stack(Software) Developer",
@@ -59,11 +60,7 @@ class HomeScreen extends StatelessWidget {
                           homeController.selected.value = index;
                           homeController.setAllBlack();
                           homeController.colors[homeController.selected.value] = KColors.blue;
-                          scrollController.animateTo(
-                            homeController.navigation[index]["url"], 
-                            duration: Duration(milliseconds: ((index * 1000) + scrollController.position.pixels.toInt())),
-                            curve: Curves.easeInCirc
-                          );
+                          homeController.scrollToSection(homeController.selected.value);
                         },
                       ),
                     ),
@@ -144,13 +141,13 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const CustomSpacing(height: .1),
-                  ServicesLargeScreen(),
+                  ServicesLargeScreen(pageKey: homeController.services),
                   const CustomSpacing(height: .1),
-                  ResumeLargeScreen(),
+                  ResumeLargeScreen(pageKey: homeController.resume),
                   const CustomSpacing(height: .06),
-                  TestimonialMediumScreen(),
+                  TestimonialMediumScreen(pageKey: homeController.testimonial),
                   const CustomSpacing(height: .06),
-                  ContactLargeScreen(),
+                  ContactLargeScreen(pageKey: homeController.contact),
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -274,6 +271,7 @@ class HomeScreen extends StatelessWidget {
                     child: Stack(
                       children: [
                         AboutSmallScreen(
+                          key: homeController.about,
                           homeController: homeController,
                           scrollController: scrollController,
                         ),
@@ -311,12 +309,12 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const CustomSpacing(height: .1),
-                  ServicesSmallScreen(),
+                  ServicesSmallScreen(pageKey: homeController.services),
                   const CustomSpacing(height: .1),
-                  ResumeSmallScreen(),
+                  ResumeSmallScreen(pageKey: homeController.resume),
                   const CustomSpacing(height: .06),
-                  TestimonialMediumScreen(),
-                  ContactSmallScreen(),
+                  TestimonialMediumScreen(pageKey: homeController.testimonial),
+                  ContactSmallScreen(pageKey: homeController.contact),
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [

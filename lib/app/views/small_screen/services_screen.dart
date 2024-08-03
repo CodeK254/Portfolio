@@ -9,12 +9,14 @@ import 'package:portfolio/app/widgets/title.dart';
 import 'package:portfolio/utils/colors.dart';
 
 class ServicesSmallScreen extends StatelessWidget {
-  ServicesSmallScreen({super.key});
+  ServicesSmallScreen({super.key, required this.pageKey});
   final ServicesController servicesController = Get.put(ServicesController());
+  final GlobalKey pageKey;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
+      key: pageKey,
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       children: [

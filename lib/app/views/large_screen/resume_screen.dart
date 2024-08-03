@@ -13,13 +13,15 @@ import "package:portfolio/utils/colors.dart";
 import 'dart:js' as js;
 
 class ResumeLargeScreen extends StatelessWidget {
-  ResumeLargeScreen({super.key});
+  ResumeLargeScreen({super.key, required this.pageKey});
 
   final ResumeController resumeController = Get.put(ResumeController());
+  final GlobalKey pageKey;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
+      key: pageKey,
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

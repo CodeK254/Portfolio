@@ -10,12 +10,14 @@ import 'package:portfolio/responsive/responsive.dart';
 import 'package:portfolio/utils/colors.dart';
 
 class TestimonialMediumScreen extends StatelessWidget {
-  TestimonialMediumScreen({super.key});
+  TestimonialMediumScreen({super.key, required this.pageKey});
   final TestimonialController testimonialController = Get.put(TestimonialController());
+  final GlobalKey pageKey;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
+      key: pageKey,
       padding: const EdgeInsets.all(12.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

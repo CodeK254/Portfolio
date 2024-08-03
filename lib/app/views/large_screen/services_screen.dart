@@ -9,12 +9,14 @@ import 'package:portfolio/app/widgets/title.dart';
 import 'package:portfolio/utils/colors.dart';
 
 class ServicesLargeScreen extends StatelessWidget {
-  ServicesLargeScreen({super.key});
+  ServicesLargeScreen({super.key, required this.pageKey});
   final ServicesController servicesController = Get.put(ServicesController());
+  final GlobalKey pageKey;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      key: pageKey,
       children: [
         Padding(
           padding: const EdgeInsets.all(16.0),
