@@ -1,3 +1,4 @@
+import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:flutter_animate/flutter_animate.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
@@ -215,7 +216,7 @@ class ResumeLargeScreen extends StatelessWidget {
                           (indexTwo) => Padding(
                             padding: const EdgeInsets.only(right: 8.0),
                             child: Image(
-                              image: AssetImage("assets/apps/${soloProjects[index]["folder"]}/${soloProjects[index]["images"][indexTwo]}.png"),
+                              image: CachedNetworkImageProvider("assets/apps/${soloProjects[index]["folder"]}/${soloProjects[index]["images"][indexTwo]}.png"),
                               width: MediaQuery.of(context).size.width * .3,
                             ),
                           ),

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
@@ -233,7 +234,7 @@ class CustomServicesDisplay extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * 0.65,
                           width: MediaQuery.of(context).size.width * 0.25,
                           child: const Image(
-                            image: AssetImage("assets/images/eight.png"),
+                            image: CachedNetworkImageProvider("assets/images/eight.png"),
                             fit: BoxFit.cover,
                           ),
                         ),

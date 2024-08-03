@@ -54,6 +54,7 @@ dependencies:
   flutter_downloader: ^1.11.7
   filesystem_picker: ^4.1.0
   google_fonts: ^6.2.1
+  cached_network_image: ^3.4.0
 
 dev_dependencies:
   flutter_test:

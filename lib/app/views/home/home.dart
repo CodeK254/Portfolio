@@ -96,13 +96,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           child: Container(
-            decoration: const BoxDecoration(
-              // image: DecorationImage(
-              //   image: AssetImage("assets/images/image_001.jpg"),
-              //   fit: BoxFit.cover,
-              //   opacity: .03,
-              // )
-            ),
+            decoration: const BoxDecoration(),
             child: SingleChildScrollView(
               controller: scrollController,
               child: !ResponsiveWidgetScreen.isSmallScreen(context) ? Column(

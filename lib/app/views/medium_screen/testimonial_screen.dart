@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -112,7 +113,7 @@ class CustomTestimonialColumn extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20)
                               ),
                               child: Image(
-                                image: AssetImage(image[index]),
+                                image: CachedNetworkImageProvider(image[index]),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -206,7 +207,7 @@ class CustomTestimonialColumn extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20)
                               ),
                               child: Image(
-                                image: AssetImage(image[index]),
+                                image: CachedNetworkImageProvider(image[index]),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -269,7 +270,7 @@ class CustomTestimonialColumn extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20)
                             ),
                             child: Image(
-                              image: AssetImage(image[index]),
+                              image: CachedNetworkImageProvider(image[index]),
                               fit: BoxFit.cover,
                             ),
                           ),
