@@ -46,11 +46,7 @@ class AboutLargeScreen extends StatelessWidget {
                           homeController.selected.value = index;
                           homeController.setAllBlack();
                           homeController.colors[homeController.selected.value] = KColors.blue;
-                          scrollController.animateTo(
-                            homeController.navigation[index]["url"], 
-                            duration: Duration(milliseconds: ((index * 1000) + scrollController.position.pixels.toInt())), 
-                            curve: Curves.easeInCirc,
-                          );
+                          homeController.scrollToSection(homeController.selected.value);
                         },
                         child: Padding( 
                           padding: EdgeInsets.symmetric(

@@ -20,19 +20,19 @@ class HomeController extends GetxController{
 
   void scrollToSection(int section) {
     switch(section){
-      case 1:
+      case 0:
         navigateToSection(section, about);
         break;
 
-      case 2:
+      case 1:
         navigateToSection(section, services);
         break;
 
-      case 3:
+      case 2:
         navigateToSection(section, resume);
         break;
 
-      case 4:
+      case 3:
         navigateToSection(section, testimonial);
         break;
 
@@ -44,7 +44,7 @@ class HomeController extends GetxController{
   void navigateToSection(int index, GlobalKey key){
     Scrollable.ensureVisible(
       key.currentContext!,
-      duration: Duration(milliseconds: (index * 1000) + 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
   }
