@@ -1,5 +1,4 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';  
 import 'package:portfolio/app/views/home/home_controller.dart';
@@ -43,7 +42,7 @@ class AboutSmallScreen extends StatelessWidget {
                   ),
                 ],
                 image: const DecorationImage(
-                  image: CachedNetworkImageProvider("assets/launcher/file.png"),
+                  image: AssetImage("assets/launcher/file.png"),
                 )
               ),
             ).animate(

@@ -1,4 +1,3 @@
-import "package:cached_network_image/cached_network_image.dart";
 import "package:flutter/material.dart";
 import "package:flutter_animate/flutter_animate.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
@@ -201,7 +200,7 @@ class ResumeSmallScreen extends StatelessWidget {
                   itemCount: soloProjects[index]["images"].length,
                   itemBuilder: (context, indexTwo){
                     return Image(
-                      image: CachedNetworkImageProvider("assets/apps/${soloProjects[index]["folder"]}/${soloProjects[index]["images"][indexTwo]}.png"),
+                      image: AssetImage("assets/apps/${soloProjects[index]["folder"]}/${soloProjects[index]["images"][indexTwo]}.png"),
                     );
                   }
                 ),
