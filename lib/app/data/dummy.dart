@@ -45,6 +45,7 @@ List<Map<String, dynamic>> soloProjects = [
       "note_list",
       "dark",
     ],
+    "link": "https://drive.usercontent.google.com/uc?id=1dF49xrn0UYmUsUFp8RWR38ffiGJe_Kid&authuser=0&export=download"
   },
   {
     "title": "Pick And Drop",
@@ -55,6 +56,7 @@ List<Map<String, dynamic>> soloProjects = [
       "language",
       "maps",
     ],
+    "link": ""
   },
   {
     "title": "Life Assistant",
@@ -65,5 +67,6 @@ List<Map<String, dynamic>> soloProjects = [
       "ask_ai",
       "details",
     ],
+    "link": "https://drive.usercontent.google.com/download?id=11vNcWRLs726Yc99X2cZ1Po01OEXWDx7H&export=download&authuser=0"
   },
 ];

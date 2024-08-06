@@ -4,6 +4,7 @@ import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:get/get.dart";
 import "package:percent_indicator/percent_indicator.dart";
 import "package:portfolio/app/data/dummy.dart";
+import "package:portfolio/app/services/launcher.dart";
 import "package:portfolio/app/views/home/resume_controller.dart";
 import "package:portfolio/app/widgets/spacing.dart";
 import "package:portfolio/app/widgets/text.dart";
@@ -183,12 +184,40 @@ class ResumeSmallScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CustomSpacing(height: .075),
-                CustomText(
-                  text: soloProjects[index]["title"].toString(),
-                  fontSize: 22, 
-                  textColor: Colors.blueGrey.shade700,
-                  fontWeight: FontWeight.bold,
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: soloProjects[index]["title"].toString(),
+                      fontSize: 22, 
+                      textColor: Colors.blueGrey.shade700,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    Tooltip(
+                        message: "Download ${soloProjects[index]["title"].toString()}",
+                        child: GestureDetector(
+                          onTap: (){
+                            openUrl(soloProjects[index]["link"]);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.grey.shade400,
+                              ),
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                            child: const Icon(
+                              Icons.download,
+                              size: 22,
+                              color: Colors.redAccent,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 const CustomSpacing(height: .02),
                 GridView.builder(
                   shrinkWrap: true,

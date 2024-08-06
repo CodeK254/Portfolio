@@ -2,8 +2,6 @@ import "package:flutter/material.dart";
 import "package:portfolio/app/widgets/spacing.dart";
 import "package:portfolio/app/widgets/text.dart";
 import "package:portfolio/utils/colors.dart";
-import "package:portfolio/app/services/download_resume.dart";
-import 'package:flutter/services.dart' show rootBundle;
 
 class CustomLabel extends StatelessWidget {
   final String label;
@@ -17,11 +15,7 @@ class CustomLabel extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: () async {
-            var loaded = await rootBundle.load("resume/Titus_Kariuki_Resume.pdf");
-            List<int> uint8list = loaded.buffer.asUint8List().toList();
-            download(uint8list);
-          },  
+          onTap: () {},
           child: CustomText(
             text: label, 
             fontSize: MediaQuery.of(context).size.width < 580 ? 25 : 30, 
