@@ -297,7 +297,7 @@ class CustomTestimonialColumn extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
               const CustomSpacing(height: .02),
