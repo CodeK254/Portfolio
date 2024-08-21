@@ -40,7 +40,6 @@ dependencies:
   flutter_launcher_icons: 
   get: ^4.6.6
   font_awesome_flutter: ^10.6.0
-  carousel_slider: ^4.2.1
   animated_text_kit: ^4.2.2
   animated_search_bar: ^2.5.0
   url_strategy: ^0.2.0

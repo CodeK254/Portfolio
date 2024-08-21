@@ -48,13 +48,17 @@ List<Map<String, dynamic>> soloProjects = [
     "link": "https://drive.usercontent.google.com/uc?id=1dF49xrn0UYmUsUFp8RWR38ffiGJe_Kid&authuser=0&export=download"
   },
   {
-    "title": "Pick And Drop",
-    "folder": "pick_and_drop",
+    "title": "Farmer's Survey",
+    "folder": "farmers",
     "images": [
-      "allow_maps",
-      "dashboard",
-      "language",
-      "maps",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
     ],
     "link": ""
   },

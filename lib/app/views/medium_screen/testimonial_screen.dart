@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
@@ -105,8 +104,9 @@ class CustomTestimonialColumn extends StatelessWidget {
                   children: [
                     AspectRatio(
                       aspectRatio: 2 / 1,
-                      child: CarouselSlider(
-                        items: [
+                      child: CarouselView(
+                        itemExtent: double.parse(image.length.toString()),
+                        children: [
                           ...List.generate(
                             image.length, 
                             (index) => Container(
@@ -120,12 +120,6 @@ class CustomTestimonialColumn extends StatelessWidget {
                             ),
                           )
                         ],
-                        options: CarouselOptions(
-                          autoPlay: true,
-                          viewportFraction: 1,
-                          aspectRatio: 2 / 1,
-                          onPageChanged: (index, reason) => selected.value = index,
-                        ),
                       ),
                     ).animate(
                       effects: [
@@ -199,8 +193,9 @@ class CustomTestimonialColumn extends StatelessWidget {
                   children: [
                     AspectRatio(
                       aspectRatio: 2 / 1,
-                      child: CarouselSlider(
-                        items: [
+                      child: CarouselView(
+                        itemExtent: double.parse(image.length.toString()),
+                        children: [
                           ...List.generate(
                             image.length, 
                             (index) => Container(
@@ -214,12 +209,6 @@ class CustomTestimonialColumn extends StatelessWidget {
                             ),
                           )
                         ],
-                        options: CarouselOptions(
-                          autoPlay: true,
-                          viewportFraction: 1,
-                          aspectRatio: 2 / 1,
-                          onPageChanged: (index, reason) => selected.value = index,
-                        ),
                       ),
                     ).animate(
                       effects: [
@@ -262,8 +251,9 @@ class CustomTestimonialColumn extends StatelessWidget {
                 children: [
                   AspectRatio(
                     aspectRatio: 2 / 1,
-                    child: CarouselSlider(
-                      items: [
+                    child: CarouselView(
+                      itemExtent: image.length.toDouble(),
+                      children: [
                         ...List.generate(
                           image.length, 
                           (index) => Container(
@@ -277,12 +267,6 @@ class CustomTestimonialColumn extends StatelessWidget {
                           ),
                         )
                       ],
-                      options: CarouselOptions(
-                        autoPlay: true,
-                        viewportFraction: 1,
-                        aspectRatio: 2 / 1,
-                        onPageChanged: (index, reason) => selected.value = index,
-                      ),
                     ),
                   ).animate(
                     effects: [

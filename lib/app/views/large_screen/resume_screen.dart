@@ -213,7 +213,9 @@ class ResumeLargeScreen extends StatelessWidget {
                         message: "Download ${soloProjects[index]["title"].toString()}",
                         child: GestureDetector(
                           onTap: (){
-                            openUrl(soloProjects[index]["link"]);
+                            if(soloProjects[index]["link"] != ""){
+                              openUrl(soloProjects[index]["link"]);
+                            }
                           },
                           child: Container(
                             decoration: BoxDecoration(
