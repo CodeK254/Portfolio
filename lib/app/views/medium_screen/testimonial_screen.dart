@@ -103,23 +103,29 @@ class CustomTestimonialColumn extends StatelessWidget {
                 child: Column(
                   children: [
                     AspectRatio(
-                      aspectRatio: 2 / 1,
-                      child: CarouselView(
-                        itemExtent: double.parse(image.length.toString()),
-                        children: [
-                          ...List.generate(
-                            image.length, 
-                            (index) => Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20)
+                      aspectRatio: 2.1,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            ...List.generate(
+                              image.length, 
+                              (index) => Padding(
+                                padding: const EdgeInsets.only(right: 24.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.red,
+                                  ),
+                                  child: Image(
+                                    image: AssetImage(image[index]),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                              child: Image(
-                                image: AssetImage(image[index]),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ).animate(
                       effects: [
@@ -193,22 +199,27 @@ class CustomTestimonialColumn extends StatelessWidget {
                   children: [
                     AspectRatio(
                       aspectRatio: 2 / 1,
-                      child: CarouselView(
-                        itemExtent: double.parse(image.length.toString()),
-                        children: [
-                          ...List.generate(
-                            image.length, 
-                            (index) => Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20)
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            ...List.generate(
+                              image.length, 
+                              (index) => Padding(
+                                padding: const EdgeInsets.only(right: 16.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20)
+                                  ),
+                                  child: Image(
+                                    image: AssetImage(image[index]),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                              child: Image(
-                                image: AssetImage(image[index]),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ).animate(
                       effects: [
@@ -251,22 +262,27 @@ class CustomTestimonialColumn extends StatelessWidget {
                 children: [
                   AspectRatio(
                     aspectRatio: 2 / 1,
-                    child: CarouselView(
-                      itemExtent: image.length.toDouble(),
-                      children: [
-                        ...List.generate(
-                          image.length, 
-                          (index) => Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20)
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          ...List.generate(
+                            image.length, 
+                            (index) => Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20)
+                                ),
+                                child: Image(
+                                  image: AssetImage(image[index]),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                            child: Image(
-                              image: AssetImage(image[index]),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ).animate(
                     effects: [
@@ -297,7 +313,7 @@ class CustomTestimonialColumn extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
+                  )
                 ],
               ),
               const CustomSpacing(height: .02),
