@@ -37,6 +37,17 @@ List<Map<String, dynamic>> about = [
 
 List<Map<String, dynamic>> soloProjects = [
   {
+    "title": "Pick and Drop",
+    "folder": "pick_and_drop",
+    "images": [
+      "allow_maps",
+      "dashboard",
+      "maps",
+      "language",
+    ],
+    "link": ""
+  },
+  {
     "title": "Notepad KE",
     "folder": "notepad",
     "images": [

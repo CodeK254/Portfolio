@@ -199,6 +199,11 @@ class ResumeSmallScreen extends StatelessWidget {
                           onTap: (){
                             if(soloProjects[index]["link"] != ""){
                               openUrl(soloProjects[index]["link"]);
+                            } else {
+                              Get.snackbar(
+                                "Message",
+                                "Unfortunately the selected project (${soloProjects[index]["title"].toString()}) cannot be downloaded as it is disclosed only to the client.",
+                              );
                             }
                           },
                           child: Container(
